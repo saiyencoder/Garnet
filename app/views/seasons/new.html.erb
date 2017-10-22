@@ -1,0 +1,11 @@
+<h1>Create Season</h1>
+
+<%= form_tag "/seasons", method: :post do %>
+  <div>
+    Quarter: <input type="text" name="quarter">
+  </div>
+  <div>
+    Year: <input type="text" name="year">
+  </div>
+  <input type="submit" value="Create Season">
+<% end %>

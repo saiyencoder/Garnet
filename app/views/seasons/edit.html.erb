@@ -1,0 +1,11 @@
+<h1>Edit Season</h1>
+
+<%= form_tag "/seasons/#{ @season.id }", method: :patch do %>
+  <div>
+    Quarter: <input type="text" name="quarter" value="<%= @season.quarter %>">
+  </div>
+  <div>
+    Year: <input type="text" name="year" value="<%= @season.year %>">
+  </div>
+  <input type="submit" name="Update Season Info">
+<% end %>

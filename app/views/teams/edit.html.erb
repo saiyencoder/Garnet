@@ -1,0 +1,6 @@
+<h1>Edit Team</h1>
+
+<%= form_tag "/teams/#{ @team.id }", method: :patch do %>
+  Team Name: <input type="text" name="name" value="<%= @team.name %>">
+  <input type="submit" name="Update Team">
+<% end %>

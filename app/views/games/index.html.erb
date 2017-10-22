@@ -1,0 +1,5 @@
+<h1>Games</h1>
+
+<% @games.each do |game| %>
+  <h3><%= game.season.quarter %> <%= game.season.year %> - Week: <%= game.week %> Stats for <%= game.team.name %></h3>
+<% end %>

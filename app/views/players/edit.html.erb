@@ -1,0 +1,36 @@
+<h1>Edit Player</h1>
+
+<%= form_tag "/players/#{@player.id}", method: :patch do %>
+  <div>
+    Name: <input type="text" name="name" value="<%= @player.name %>">
+  </div>
+  <div>
+    Team: 
+    <select name="team_id" >
+      <% @teams.each do |team| %>
+        <option value="<%= team.id %>" <%= 'selected="selected"' if team.id == @player.team_id%>><%= team.name %></option>         
+      <% end %>
+    </select>
+  </div>
+  <div>
+    Commissioner: 
+    <select name="commissioner" >
+      <option value="false" selected="selected">Not a Commissioner</option> 
+      <option value="true">Commissioner</option>     
+    </select>
+  </div>
+  <div>
+    Captain: 
+    <select name="captain" >
+      <option value="false" selected="selected">Not a Captain</option> 
+      <option value="true">Captain</option>     
+    </select>
+  </div>
+  <div>
+    Password: <input type="password" name="password" value="password">
+  </div>
+  <div>
+    Password Confirmation: <input type="password" name="password_confirmation" value="password_confirmation">
+  </div>
+  <input type="submit" value="Update Player">
+<% end %>

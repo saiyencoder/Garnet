@@ -1,0 +1,10 @@
+<h1>Seasons Home Page</h1>
+
+<a href="/seasons/new">Start a Season</a>
+
+<% @seasons.each do |season| %>
+  <div>
+    <h3><a href="/seasons/<%= season.id %>"><%= season.quarter %> <%= season.year %> </a></h3>
+  </div>
+<% end %>
+
