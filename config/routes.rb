@@ -29,4 +29,12 @@ Rails.application.routes.draw do
   patch '/players/:id' => 'players#update'
   delete '/players/:id' => 'players#destroy'
 
+  get '/stats' => 'stats#index'
+  get '/stats/new/:id' => 'stats#new'
+  post '/stats' => 'stats#create'
+  get '/stats/:id' => 'stats#show'
+  get '/stats/:id/edit' => 'stats#edit'
+  patch '/stats/:id' => 'stats#update'
+  delete '/stats/:id' => 'stats#destroy'
+
 end
