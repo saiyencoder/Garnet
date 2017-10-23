@@ -7,7 +7,6 @@ class StatsController < ApplicationController
   def new
     @game = Game.find(params[:id])
     @players = @game.team.players
-    # @teams = Team.all
     @stat = Stat.new
   end
 
@@ -42,11 +41,27 @@ class StatsController < ApplicationController
 
   def edit
     @stat = Stat.find(params[:id])
-    @player = @stat.player_id
+    @players = @stat.players
   end
 
   def update
-    
+    @stat = Stat.find(params[:id])
+    @stat.assign_attributes(
+                            field_goal_made: params[:field_goal_made],
+                            field_goal_attempt: params[:field_goal_attempt],
+                            three_point_made: params[:three_point_made],
+                            three_point_attempt: params[:three_point_attempt],
+                            free_throws_made: params[:free_throws_made],
+                            free_throw_attempts: params[:free_throw_attempts],
+                            rebounds: params[:rebounds],
+                            assists: params[:assists],
+                            steals: params[:steals],
+                            blocks: params[:blocks],
+                            fouls: params[:fouls]
+                            )
+    @stat.calculate_total
+    flash[:success] = "Stats Updated."
+    redirect_to "/stats/#{@stat.id}/edit"
   end
 
   def destroy

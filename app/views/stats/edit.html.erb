@@ -1,0 +1,66 @@
+<section>
+<% @players.each_slice(3) do |players|  %>
+    <div class="row">
+      <% players.each do |x| %>
+          <div class="col-md-4 col-sm-6 product-index-single">
+            <%= form_tag "/stats", method: :post do %>
+              <div>
+                <%= @stat.player.name %>
+              </div>
+              <div>
+                FGM: <input type="text" name="field_goal_made" value="<%= @stat.field_goal_made %>">
+              </div>
+              <div>
+                FGA: <input type="text" name="field_goal_attempt" value="<%= @stat.field_goal_attempt %>">
+              </div>
+              <div>
+                3-FGM: <input type="text" name="three_point_made" value="<%= @stat.three_point_made %>">
+              </div>
+              <div>
+                3-FGA: <input type="text" name="three_point_attempt" value="<%= @stat.three_point_attempt %>">
+              </div>
+              <div>
+                Free Throws Made: <input type="text" name="free_throws_made" value="<%= @stat.free_throws_made %>">
+              </div>
+              <div>
+                Free Throw Attempts: <input type="text" name="free_throw_attempts" value="<%= @stat.free_throw_attempts %>">
+              </div>
+              <div>
+                Rebounds: <input type="text" name="rebounds" value="<%= @stat.rebounds %>">
+              </div>
+              <div>
+                Assists: <input type="text" name="assists" value="<%= @stat.assists %>">
+              </div>
+              <div>
+                Steals: <input type="text" name="steals" value="<%= @stat.steals %>">
+              </div>
+              <div>
+                Blocks: <input type="text" name="blocks" value="<%= @stat.blocks %>">
+              </div>
+              <div>
+                Fouls: <input type="text" name="fouls" value="<%= @stat.fouls %>">
+              </div>
+              <br>
+              <input type="submit" value="Update Stats">
+              <div>
+                <br>
+                Points: <input type="text" name="points" value="<%= @stat.points %>">
+              </div>
+              <div>
+                Field Goal %: <input type="text" name="field_goal_percentage" value="<%= @stat.field_goal_percentage %>">
+              </div>
+                <div>
+                3-Point Field Goal %: <input type="text" name="three_point_field_goal_percentage" value="<%= @stat.three_point_field_goal_percentage %>">
+              </div>
+                <div>
+                 Free-Throw % <input type="text" name="free_throw_percentage" value="<%= @stat.free_throw_percentage %>">
+              </div>
+              <br>
+              <%= link_to 'Submit Stats', "/players",class: "btn btn-info"  %>
+            <% end %>
+            <br>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+</section>
