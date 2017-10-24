@@ -31,17 +31,18 @@ class StatsController < ApplicationController
       flash[:success] = "Stat Successfully Created"
       redirect_to "/stats/#{@stat.id}/edit"
     else
-      redirect_to "/"
+      redirect_to "/games/#{game_id}"
     end
   end
 
   def show
     @stat = Stat.find(params[:id])
+    @players = @stat.game.team.players
   end
 
   def edit
     @stat = Stat.find(params[:id])
-    @players = @stat.players
+    @players = @game.team.players
   end
 
   def update

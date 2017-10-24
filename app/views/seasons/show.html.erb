@@ -4,6 +4,6 @@
   <h2> <%= @season.quarter %> - <%= @season.year %> </h2>
 </div>
 
-<%= link_to "Create A New Game", "/games/new/#{@season.id}", class: "btn btn-primary" %>
+<%= link_to "Create a New Game for Season", "/games/new/#{@season.id}", class: "btn btn-primary" %>
 <%= link_to "Edit Season Info", "/seasons/#{ @season.id }/edit", class: "btn btn-warning" %>
 <%= link_to "Delete Season", "/seasons/#{ @season.id }", method: :delete, class: "btn btn-danger" %>

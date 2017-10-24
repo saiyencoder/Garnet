@@ -31,19 +31,26 @@ class GamesController < ApplicationController
   end
 
   def edit
-    
+    @game = Game.find(params[:id])
+    @teams = Team.all
   end
 
   def update
     @game = Game.find(params[:id])
-    @game.update
+    @game.update(
+                  team_id: params[:team_id],
+                  week: params[:week],
+                  scorer: params[:scorer]
+                  )
+    flash[:success] = "Game Info Updated"
+    redirect_to "/games/#{@game.id}"
   end
 
   def destroy
     @game = Game.find(params[:id])
     @game.destroy
     flash[:warning] = "Game has been removed"
-    redirect_to "/seasons"
+    redirect_to "/games"
   end
 
 end
