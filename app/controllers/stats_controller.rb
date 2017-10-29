@@ -31,7 +31,7 @@ class StatsController < ApplicationController
       flash[:success] = "Stat Successfully Created"
       redirect_to "/stats/#{@stat.id}/edit"
     else
-      redirect_to "/games/#{game_id}"
+      redirect_to "/games"
     end
   end
 
@@ -42,7 +42,7 @@ class StatsController < ApplicationController
 
   def edit
     @stat = Stat.find(params[:id])
-    @players = @game.team.players
+    @players = @stat.game.team.players
   end
 
   def update
@@ -66,6 +66,9 @@ class StatsController < ApplicationController
   end
 
   def destroy
-
+    @stat = Stat.find(params[:id])
+    @stat.destroy
+    flash[:success] = "Stats Deleted"
+    redirect_to "/stats"
   end
 end

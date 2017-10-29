@@ -1,5 +1,5 @@
 <h1>Create Stat Sheet</h1>
-
+<div id="app">
 <section>
 <% @players.each_slice(3) do |players|  %>
     <div class="row">
@@ -56,12 +56,13 @@
               <input type="submit" value="Create Stats">
             <% end %>
             <br>
+            {{message}}
           </div>
         <% end %>
       </div>
     <% end %>
 </section>
-
+</div>
 
 
 
