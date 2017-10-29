@@ -1,4 +1,5 @@
 class StatsController < ApplicationController
+
   def index
     @stats = Stat.all
     @games = Game.all
@@ -6,7 +7,8 @@ class StatsController < ApplicationController
 
   def new
     @game = Game.find(params[:id])
-    @players = @game.team.players
+    # @players = @game.team.players
+    gon.players = @game.team.players #stores all the players that was passed through from new page
     @stat = Stat.new
   end
 
