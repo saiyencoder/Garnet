@@ -1,8 +1,7 @@
 class Stat < ApplicationRecord
   belongs_to :player
   belongs_to :game
-  belongs_to :team
-  
+  # belongs_to :team
 
   def calculate_total
     self.points = (field_goal_made * 2) + (three_point_made * 3) + (free_throws_made)
@@ -11,4 +10,5 @@ class Stat < ApplicationRecord
     self.free_throw_percentage = ((free_throws_made.to_f) / (free_throw_attempts.to_f)) * 100
     save
   end
+
 end

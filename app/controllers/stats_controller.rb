@@ -26,13 +26,12 @@ class StatsController < ApplicationController
                       assists: 0,
                       steals: 0,
                       blocks: 0,
-                      fouls: 0,
-                      points: 0
+                      fouls: 0
                     )
 
     if @stat.save
       flash[:success] = "Stat Successfully Created"
-      redirect_to "/stats"
+      redirect_to "/stats/#{@stat.id}/edit"
     else
       flash[:warning] = "Stats Were Not Created"
       redirect_to "/games"
@@ -67,6 +66,7 @@ class StatsController < ApplicationController
     @stat.calculate_total
     flash[:success] = "Stats Updated."
     redirect_to "/stats/#{@stat.id}/edit"
+    
   end
 
   def destroy

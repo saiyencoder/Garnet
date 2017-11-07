@@ -1,59 +1,58 @@
 <h1>Create stats</h1>
 
 <%= form_for @stat do |f| %>
-      <div>
-        <%= f.label :game_id, "Game ID" %>
-        <%= f.text_field :game_id, value: @game.id %>
-      </div>
-      <select name="player_id" id="player_id">
-        <% @players.each do |player| %>
-          <option value="<%= player.id %>"><%= player.name %></option>
-        <% end %>
-      </select>
-      <div>
-        <%= f.label :field_goal_made, "FGM" %>
-        <%= f.text_field :field_goal_made, value: 0 %>
-      </div>
-      <div>
-        <%= f.label :field_goal_attempt, "FGA" %>
-        <%= f.text_field :field_goal_attempt, value: 0 %>
-      </div>
-      <div>
-        <%= f.label :three_point_made, "3-FGM" %>
-        <%= f.text_field :three_point_made, value: 0 %>
-      </div>
-      <div>
-        <%= f.label :three_point_attempt, "3-FGA" %>
-        <%= f.text_field :three_point_attempt, value: 0 %>
-      </div>
-      <div>
-        <%= f.label :free_throws_made, "FTM" %>
-        <%= f.text_field :free_throws_made, value: 0 %>
-      </div>
-      <div>
-        <%= f.label :free_throw_attempts, "FTA" %>
-        <%= f.text_field :free_throw_attempts, value: 0 %>
-      </div>
-      <div>
-        <%= f.label :rebounds, "Rebounds" %>
-        <%= f.text_field :rebounds, value: 0 %>
-      </div>
-      <div>
-        <%= f.label :assists, "Assists" %>
-        <%= f.text_field :assists, value: 0 %>
-      </div>
-      <div>
-        <%= f.label :steals, "Steals" %>
-        <%= f.text_field :steals, value: 0 %>
-      </div>
-      <div>
-        <%= f.label :blocks, "Blocks" %>
-        <%= f.text_field :blocks, value: 0 %>
-      </div>
-      <div>
-        <%= f.label :fouls, "Fouls" %>
-        <%= f.text_field :fouls, value: 0 %>
-      </div>
-      <br>
-  <%= f.submit :submit %>
+  <div>
+    <%= f.hidden_field :game_id, value: @game.id %>
+  </div>
+  <select name="player_id" id="player_id">
+    <% @players.each do |player| %>
+      <option value="<%= player.id %>"><%= player.name %></option>
+    <% end %>
+  </select>
+  <div>
+    <%= f.label :field_goal_made, "FGM" %>
+    <%= f.text_field :field_goal_made, value: 0 %>
+  </div>
+  <div>
+    <%= f.label :field_goal_attempt, "FGA" %>
+    <%= f.text_field :field_goal_attempt, value: 0 %>
+  </div>
+  <div>
+    <%= f.label :three_point_made, "3-FGM" %>
+    <%= f.text_field :three_point_made, value: 0 %>
+  </div>
+  <div>
+    <%= f.label :three_point_attempt, "3-FGA" %>
+    <%= f.text_field :three_point_attempt, value: 0 %>
+  </div>
+  <div>
+    <%= f.label :free_throws_made, "FTM" %>
+    <%= f.text_field :free_throws_made, value: 0 %>
+  </div>
+  <div>
+    <%= f.label :free_throw_attempts, "FTA" %>
+    <%= f.text_field :free_throw_attempts, value: 0 %>
+  </div>
+  <div>
+    <%= f.label :rebounds, "Rebounds" %>
+    <%= f.text_field :rebounds, value: 0 %>
+  </div>
+  <div>
+    <%= f.label :assists, "Assists" %>
+    <%= f.text_field :assists, value: 0 %>
+  </div>
+  <div>
+    <%= f.label :steals, "Steals" %>
+    <%= f.text_field :steals, value: 0 %>
+  </div>
+  <div>
+    <%= f.label :blocks, "Blocks" %>
+    <%= f.text_field :blocks, value: 0 %>
+  </div>
+  <div>
+    <%= f.label :fouls, "Fouls" %>
+    <%= f.text_field :fouls, value: 0 %>
+  </div>
+  <br>
+  <%= f.submit "Create Stat" %>
 <% end %>

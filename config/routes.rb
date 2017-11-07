@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   post '/stats' => 'stats#create'
   get '/stats/:id' => 'stats#show'
   get '/stats/:id/edit' => 'stats#edit'
-  patch '/stats/:id' => 'stats#update'
+  patch '/stats/:id/edit' => 'stats#update'
   delete '/stats/:id' => 'stats#destroy'
 
 end

@@ -1,9 +1,24 @@
 <h1>Stat Home Page</h1>
 
 <% @stats.each do |stat| %>
-  <%= stat.player.name %>
-  <%= stat.points %>
-  <br>
+  Game(Week): <%= stat.game.week %><br>
+  Player: <%= stat.player.name %><br>
+  Points: <%= stat.points %><br>
+  FGM: <%= stat.field_goal_made %><br>
+  FGA: <%= stat.field_goal_attempt %><br>
+  FG%: <%= stat.field_goal_percentage %>% <br>
+  3PM: <%= stat.three_point_made %><br>
+  3PA: <%= stat.three_point_attempt %><br>
+  3P%: <%= stat.field_goal_attempt %>%<br>
+  FTM: <%= stat.free_throws_made %><br>
+  FTA: <%= stat.free_throw_attempts %><br>
+  FT%: <%= stat.free_throw_percentage %>%<br>
+  REB: <%= stat.rebounds %><br>
+  AST: <%= stat.assists %><br>
+  STL: <%= stat.steals %><br>
+  BLK: <%= stat.blocks %><br>
+  PFL: <%= stat.fouls %>
+  <br><br>
 <% end %>
 
 
