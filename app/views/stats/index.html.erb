@@ -1,5 +1,9 @@
 <h1>Stat Home Page</h1>
 
 <% @stats.each do |stat| %>
-  <h3><a href="/stats/<%= stat.id %>">Stats for <%= stat.game.team.name %></a></h3>
+  <%= stat.player.name %>
+  <%= stat.points %>
+  <br>
 <% end %>
+
+

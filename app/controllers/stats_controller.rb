@@ -3,18 +3,18 @@ class StatsController < ApplicationController
   def index
     @stats = Stat.all
     @games = Game.all
+    @players = Player.all
   end
 
   def new
     @game = Game.find(params[:id])
-    # @players = @game.team.players
-    gon.players = @game.team.players #stores all the players that was passed through from new page
     @stat = Stat.new
+    @players = @game.team.players
   end
 
   def create
-    @stat = Stat.new(
-                      game_id: params[:game_id],
+     @stat = Stat.new(
+                      game_id: params[:stat][:game_id],
                       player_id: params[:player_id],
                       field_goal_made: 0,
                       field_goal_attempt: 0,
@@ -28,11 +28,13 @@ class StatsController < ApplicationController
                       blocks: 0,
                       fouls: 0,
                       points: 0
-                      )
+                    )
+
     if @stat.save
       flash[:success] = "Stat Successfully Created"
-      redirect_to "/stats/#{@stat.id}/edit"
+      redirect_to "/stats"
     else
+      flash[:warning] = "Stats Were Not Created"
       redirect_to "/games"
     end
   end
@@ -73,4 +75,5 @@ class StatsController < ApplicationController
     flash[:success] = "Stats Deleted"
     redirect_to "/stats"
   end
+
 end

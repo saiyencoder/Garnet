@@ -4,21 +4,30 @@ document.addEventListener("DOMContentLoaded", function(event) {
     el: '#app',
     data: {
       message: "Still Works",
-      // teams: [],
-      players: gon.players
+      stats: [
+              {id: this.id, fieldGoalMade: 0}
+              ]
     },
-    mounted: function() {
-      // $.get('/teams.json', function(data) {
-      //   this.teams = data;
-      // }.bind(this));
 
-      // $.get('/players.json', function(data) {
-      //   this.players = data;
-      // }.bind(this));
+    mounted: function() {
+      $.get('/stats.json', function(data) {
+        this.stats = data;
+      }.bind(this));
     },
     methods: {
 
+      createStats: function() {
+        var params = {
+          fieldGoalMade: this.fieldGoalMade
+        };
+        $.post('/stats.json', params, function(newStats) {
+          this.stats.push(newStats);
+        }.bind(this));
+      },
 
+
+
+      
     },
     computed: {
 

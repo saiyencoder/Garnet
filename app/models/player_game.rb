@@ -1,4 +1,4 @@
 class PlayerGame < ApplicationRecord
   belongs_to :player
-  belogos_to :game
+  belongs_to :game
 end

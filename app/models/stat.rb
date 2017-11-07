@@ -1,7 +1,8 @@
 class Stat < ApplicationRecord
   belongs_to :player
   belongs_to :game
-  belongs_to :team, optional: true
+  belongs_to :team
+  
 
   def calculate_total
     self.points = (field_goal_made * 2) + (three_point_made * 3) + (free_throws_made)

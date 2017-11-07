@@ -21,7 +21,7 @@ class GamesController < ApplicationController
       flash[:success] = "Game Created"
       redirect_to "/games/#{@game.id}"
     else
-      flash[:warning] = "Game was not create. Try again."
+      flash[:warning] = "Game was not created. Try again."
       redirect_to "/seasons"
     end
   end

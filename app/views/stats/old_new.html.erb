@@ -1,0 +1,135 @@
+<h1>Create Statsheet</h1>
+
+<%= @player_hash[0] %>
+<h2>----------------------------</h2>
+<br><br>
+<% @player_hash.each do |player_hash, stats| %>
+  <%= player_hash %>
+  <%= stats["player_id"] %>
+  <br>
+<% end %>
+<h2>----------------------------</h2>
+<br><br>
+
+
+<%= form_tag stats_path(method: :post) do %>
+  <% @player_hash.each do |player, stats| %>
+    <%= fields_for 'stats', player do |f| %>
+      <h4><%= player %></h4>
+      <div>
+        <%= f.label :field_goal_made, "FGM" %>
+        <%= f.text_field :field_goal_made, value: 0 %>
+      </div>
+      <div>
+        <%= f.label :field_goal_attempt, "FGA" %>
+        <%= f.text_field :field_goal_attempt, value: 0 %>
+      </div>
+      <div>
+        <%= f.label :three_point_made, "3-FGM" %>
+        <%= f.text_field :three_point_made, value: 0 %>
+      </div>
+      <div>
+        <%= f.label :three_point_attempt, "3-FGA" %>
+        <%= f.text_field :three_point_attempt, value: 0 %>
+      </div>
+      <div>
+        <%= f.label :free_throws_made, "FTM" %>
+        <%= f.text_field :free_throws_made, value: 0 %>
+      </div>
+      <div>
+        <%= f.label :free_throw_attempts, "FTA" %>
+        <%= f.text_field :free_throw_attempts, value: 0 %>
+      </div>
+      <div>
+        <%= f.label :rebounds, "Rebounds" %>
+        <%= f.text_field :rebounds, value: 0 %>
+      </div>
+      <div>
+        <%= f.label :assists, "Assists" %>
+        <%= f.text_field :assists, value: 0 %>
+      </div>
+      <div>
+        <%= f.label :steals, "Steals" %>
+        <%= f.text_field :steals, value: 0 %>
+      </div>
+      <div>
+        <%= f.label :blocks, "Blocks" %>
+        <%= f.text_field :blocks, value: 0 %>
+      </div>
+      <div>
+        <%= f.label :fouls, "Fouls" %>
+        <%= f.text_field :fouls, value: 0 %>
+      </div>
+      <br>
+    <% end %>
+  <% end %><br><br>
+<%= submit_tag "Submit New Stats"%> <br><br>
+<% end %>
+
+------------------------------------------------
+
+<h1>Create stats</h1>
+
+<% @player_hash.each do |x,y| %>
+  <%= x.name %> <%= y.field_goal_made %><br>
+<% end %>
+
+<h2>-----------------------------------------</h2>
+
+<%= form_tag stats_path(method: :post) do %>
+  <% @player_hash.each do |player,stat|%>
+    <%= fields_for 'stat[]', player.stats do |f|%>
+      <%= player.name %>
+      <div>
+        <%= f.label :field_goal_made, "FGM" %>
+        <%= f.text_field :field_goal_made, value: 0 %>
+      </div>
+      <div>
+        <%= f.label :field_goal_attempt, "FGA" %>
+        <%= f.text_field :field_goal_attempt, value: 0 %>
+      </div>
+      <div>
+        <%= f.label :three_point_made, "3-FGM" %>
+        <%= f.text_field :three_point_made, value: 0 %>
+      </div>
+      <div>
+        <%= f.label :three_point_attempt, "3-FGA" %>
+        <%= f.text_field :three_point_attempt, value: 0 %>
+      </div>
+      <div>
+        <%= f.label :free_throws_made, "FTM" %>
+        <%= f.text_field :free_throws_made, value: 0 %>
+      </div>
+      <div>
+        <%= f.label :free_throw_attempts, "FTA" %>
+        <%= f.text_field :free_throw_attempts, value: 0 %>
+      </div>
+      <div>
+        <%= f.label :rebounds, "Rebounds" %>
+        <%= f.text_field :rebounds, value: 0 %>
+      </div>
+      <div>
+        <%= f.label :assists, "Assists" %>
+        <%= f.text_field :assists, value: 0 %>
+      </div>
+      <div>
+        <%= f.label :steals, "Steals" %>
+        <%= f.text_field :steals, value: 0 %>
+      </div>
+      <div>
+        <%= f.label :blocks, "Blocks" %>
+        <%= f.text_field :blocks, value: 0 %>
+      </div>
+      <div>
+        <%= f.label :fouls, "Fouls" %>
+        <%= f.text_field :fouls, value: 0 %>
+      </div>
+      <br>
+    <% end %>
+  <% end %>
+<%= submit_tag "Submit New Stats"%> <br><br>
+<% end %>
+
+
+
+
