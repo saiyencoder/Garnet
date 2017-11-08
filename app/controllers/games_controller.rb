@@ -11,12 +11,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.create(
-                        season_id: params[:season_id],
-                        team_id: params[:team_id],
-                        week: params[:week],
-                        scorer: params[:scorer]
-                          )
+    @game = Game.new(game_params)
     if @game.save
       flash[:success] = "Game Created"
       redirect_to "/games/#{@game.id}"
@@ -35,22 +30,35 @@ class GamesController < ApplicationController
     @teams = Team.all
   end
 
+
+
+
+  def edit_stats
+    @game = Game.find(params[:id])
+  end
+
   def update
     @game = Game.find(params[:id])
-    @game.update(
-                  team_id: params[:team_id],
-                  week: params[:week],
-                  scorer: params[:scorer]
-                  )
+    @game.update(game_params)
+                      
     flash[:success] = "Game Info Updated"
     redirect_to "/games/#{@game.id}"
   end
+
+
+  
 
   def destroy
     @game = Game.find(params[:id])
     @game.destroy
     flash[:warning] = "Game has been removed"
     redirect_to "/games"
+  end
+
+  private
+
+  def game_params
+    params.require(:game).permit(:id, :team_id, :week, :scorer, :season_id)
   end
 
 end

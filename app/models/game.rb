@@ -4,5 +4,6 @@ class Game < ApplicationRecord
   has_many :playergames
   has_many :players, through: :playergames
   has_many :stats
+  # accepts_nested_attributes_for :stats
 
 end

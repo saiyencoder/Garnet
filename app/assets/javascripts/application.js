@@ -13,5 +13,6 @@
 //= require rails-ujs
 //= require jquery 
 //= require bootstrap-sprockets
+//= require cocoon
 //= require vue
 //= require_tree .

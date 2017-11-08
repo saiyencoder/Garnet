@@ -1,22 +1,18 @@
-<h1>New Game</h1>
+<h1>New Game!</h1>
 
-<%= form_tag "/games", method: :post do %>
-  <input type="hidden" name="season_id" value="<%= @season.id %>">
+<%= form_for(@game, url: "/games", method: :post) do |f| %>
+  <%= f.hidden_field :season_id, value: @season.id %>
   <div>
     Team Stats For:
-    <select name="team_id">
-        <% @teams.each do |team| %>
-          <option value=" <%= team.id %>" <%= 'selected="selected"' if team.id == @game.team_id %>>
-            <%= team.name %>
-          </option>
-        <% end %>
-    </select>
+    <%= f.collection_select :team_id, @teams, :id, :name %>
   </div>
   <div>
-    Week: <input type="text" name="week">
+    Week:
+    <%= f.text_field :week %>
   </div>
   <div>
-    Scorer: <input type="text" name="scorer">
+    Scorer:
+    <%= f.text_field :scorer %>
   </div>
-  <input type="submit" name="Create Game">  
+  <%= f.submit "Create Game" %>
 <% end %>

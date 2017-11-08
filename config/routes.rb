@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   delete '/seasons/:id' => 'seasons#destroy'
 
   get '/games' => 'games#index'
+  get '/games/:id/edit_stats' => 'games#edit_stats'
   get '/games/new/:id' => 'games#new'
   post '/games' => 'games#create'
   get '/games/:id' => 'games#show'
@@ -32,9 +33,11 @@ Rails.application.routes.draw do
   get '/stats' => 'stats#index'
   get '/stats/new/:id' => 'stats#new'
   post '/stats' => 'stats#create'
+  get '/stats/:game_id/edit_stats' => 'stats#edit_stats'
   get '/stats/:id' => 'stats#show'
   get '/stats/:id/edit' => 'stats#edit'
   patch '/stats/:id' => 'stats#update'
   delete '/stats/:id' => 'stats#destroy'
+  post '/stats/:game_id/create_stats' => 'stats#create_stats'
 
 end

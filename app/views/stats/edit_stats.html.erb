@@ -1,0 +1,15 @@
+<p>Edit Stats</p>
+
+<%= form_for(@game, url: "/games/#{@game.id}", method: :patch) do |f| %>
+  <% @game.team.players.each do |player| %>
+    <div>
+    <%= player.name %>
+    <%= f.fields_for :stats do |stat| %>
+
+
+    <% end %>
+    </div>
+  <% end %>
+  <br><br>
+  <%= f.submit %>
+<% end %>
