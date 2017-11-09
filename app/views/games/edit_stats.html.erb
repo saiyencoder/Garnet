@@ -1,5 +1,13 @@
-<p>Real Edit Stats</p>
+<p>Edit Stats</p>
 
-<%= form_for(@game, url: "/games/#{@game.id}", method: :patch) do |f| %>
-  
+
+<%= form_for(@game, url: "/games/#{@game.id}/", method: :patch) do |f| %>
+    <div>
+      <%= f.fields_for :stats do |stat| %>
+        <%= render 'stat_fields', f: stat %>
+      <% end %>
+    </div>
+  <br>
+  <%= f.submit 'update_stats' %>
+  <br>
 <% end %>

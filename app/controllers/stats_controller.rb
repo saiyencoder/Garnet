@@ -67,11 +67,17 @@ class StatsController < ApplicationController
   def edit_stats
     @game = Game.find(params[:game_id])
     @stats = Stat.where(game_id: @game.id)
+
   end
 
-
-
-
+  def update_stats
+    @game = Game.find(params[:game_id])
+    @stats = Stat.where(game_id: @game.id)
+    @stats.each do |stat|
+      stat.update(stat_params)
+      stat.calculate_total
+    end
+  end
 
 
   def show
@@ -115,7 +121,7 @@ class StatsController < ApplicationController
   private
 
   def stat_params
-    params.require(:game).permit(:field_goal_made, :field_goal_attempt, :three_point_made, :three_point_attempt, :free_throws_made, :free_throw_attempts, :rebounds, :assists, :steals, :blocks, :fouls)
+    params.permit(:field_goal_made, :field_goal_attempt, :three_point_made, :three_point_attempt, :free_throws_made, :free_throw_attempts, :rebounds, :assists, :steals, :blocks, :fouls)
   end
 
 end

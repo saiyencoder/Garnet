@@ -30,9 +30,6 @@ class GamesController < ApplicationController
     @teams = Team.all
   end
 
-
-
-
   def edit_stats
     @game = Game.find(params[:id])
   end
@@ -46,7 +43,7 @@ class GamesController < ApplicationController
   end
 
 
-  
+
 
   def destroy
     @game = Game.find(params[:id])
@@ -58,7 +55,7 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:id, :team_id, :week, :scorer, :season_id)
+    params.require(:game).permit(:id, :team_id, :week, :scorer, :season_id, stats_attributes: [:id, :field_goal_made, :field_goal_attempt, :three_point_made, :three_point_attempt, :free_throws_made, :free_throw_attempts, :rebounds, :assists, :steals, :blocks, :fouls])
   end
 
 end
