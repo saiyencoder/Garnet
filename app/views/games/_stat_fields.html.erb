@@ -1,5 +1,5 @@
 <div class="nested-fields well">
-  
+  <%= f.object.player_name %>
     <div>
       <%= f.label :field_goal_made, "FGM" %>
       <%= f.text_field :field_goal_made %>
@@ -43,5 +43,9 @@
     <div>
       <%= f.label :fouls, "Fouls" %>
       <%= f.text_field :fouls %>
+    </div>
+    <div>
+      <%= f.label :points, "Points"%>
+      <%= f.text_field :points, value: (f.object.field_goal_made*2) %>
     </div>
 </div>

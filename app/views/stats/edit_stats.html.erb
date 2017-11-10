@@ -2,57 +2,5 @@
 
 
 <%= form_for(@game, url: "/stats/#{@game.id}/edit_stats", method: :patch) do |f| %>
-    <div>
-    <%= f.fields_for :stats do |stat| %>
-    <div>
-      <%= stat.label :field_goal_made, "FGM" %>
-      <%= stat.text_field :field_goal_made, value: "#{player.stats.where(game_id: 18).first.field_goal_made}" %>
-    </div>
-    <div>
-      <%= stat.label :field_goal_attempt, "FGA" %>
-      <%= stat.text_field :field_goal_attempt, value: 0 %>
-    </div>
-    <div>
-      <%= stat.label :three_point_made, "3-FGM" %>
-      <%= stat.text_field :three_point_made, value: 0 %>
-    </div>
-    <div>
-      <%= stat.label :three_point_attempt, "3-FGA" %>
-      <%= stat.text_field :three_point_attempt, value: 0 %>
-    </div>
-    <div>
-      <%= stat.label :free_throws_made, "FTM" %>
-      <%= stat.text_field :free_throws_made, value: 0 %>
-    </div>
-    <div>
-      <%= stat.label :free_throw_attempts, "FTA" %>
-      <%= stat.text_field :free_throw_attempts, value: 0 %>
-    </div>
-    <div>
-      <%= stat.label :rebounds, "Rebounds" %>
-      <%= stat.text_field :rebounds, value: 0 %>
-    </div>
-    <div>
-      <%= stat.label :assists, "Assists" %>
-      <%= stat.text_field :assists, value: 0 %>
-    </div>
-    <div>
-      <%= stat.label :steals, "Steals" %>
-      <%= stat.text_field :steals, value: 0 %>
-    </div>
-    <div>
-      <%= stat.label :blocks, "Blocks" %>
-      <%= stat.text_field :blocks, value: 0 %>
-    </div>
-    <div>
-      <%= stat.label :fouls, "Fouls" %>
-      <%= stat.text_field :fouls, value: 0 %>
-    </div>
-    <br>
-    <% end %>
-  <% end %>
-  <br>
-  <%= f.submit action: 'update_stats'%><br>
-  <%= link_to 'Submit Stats', "/players",class: "btn btn-info"  %>
-  <br>
+    
 <% end %>

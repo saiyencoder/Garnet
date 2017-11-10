@@ -39,7 +39,7 @@ class GamesController < ApplicationController
     @game.update(game_params)
                       
     flash[:success] = "Game Info Updated"
-    redirect_to "/games/#{@game.id}"
+    redirect_to "/games/#{@game.id}/edit_stats"
   end
 
 
@@ -55,7 +55,7 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:id, :team_id, :week, :scorer, :season_id, stats_attributes: [:id, :field_goal_made, :field_goal_attempt, :three_point_made, :three_point_attempt, :free_throws_made, :free_throw_attempts, :rebounds, :assists, :steals, :blocks, :fouls])
+    params.require(:game).permit(:id, :team_id, :week, :scorer, :season_id, stats_attributes: [:id, :player_name, :field_goal_made, :field_goal_attempt, :three_point_made, :three_point_attempt, :free_throws_made, :free_throw_attempts, :rebounds, :assists, :steals, :blocks, :fouls])
   end
 
 end

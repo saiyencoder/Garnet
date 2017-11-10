@@ -47,6 +47,7 @@ class StatsController < ApplicationController
       Stat.create!(
                     game_id: params[:game_id],
                     player_id: player.id,
+                    player_name: player.name,
                     field_goal_made: 0,
                     field_goal_attempt: 0,
                     three_point_made: 0,
@@ -73,10 +74,6 @@ class StatsController < ApplicationController
   def update_stats
     @game = Game.find(params[:game_id])
     @stats = Stat.where(game_id: @game.id)
-    @stats.each do |stat|
-      stat.update(stat_params)
-      stat.calculate_total
-    end
   end
 
 
