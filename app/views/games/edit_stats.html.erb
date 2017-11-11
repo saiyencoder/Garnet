@@ -5,7 +5,7 @@
     <div>
       <div class="row">
         <%= f.fields_for :stats do |stat| %>
-          <div class="col-md-3">
+          <div class="col-md-2">
           <%= render 'stat_fields', f: stat %>
           </div>
         <% end %>

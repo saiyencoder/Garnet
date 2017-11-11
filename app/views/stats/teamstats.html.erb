@@ -1,0 +1,60 @@
+<h1>Team Stats</h1>
+
+<div class="row">
+  <% @stats.each do |stat| %>
+    <div class="col-md-2">
+      <div>
+       Game(Week): <%= stat.game.week %>
+      </div>
+      <div>
+        <a href="/players/<%= stat.player.id %>">Player: <%= stat.player.name %></a>
+      </div>
+      <div>
+         Points: <%= stat.points %>
+      </div>
+      <div>
+         FGM: <%= stat.field_goal_made %><br>
+      </div>
+      <div>
+         FGA: <%= stat.field_goal_attempt %><br>
+      </div>
+      <div>
+         FG%: <%= stat.field_goal_percentage %>% <br>
+      </div>
+      <div>
+         3PM: <%= stat.three_point_made %><br>
+      </div>
+      <div>
+         3PA: <%= stat.three_point_attempt %><br>
+      </div>
+      <div>
+         3P%: <%= stat.three_point_field_goal_percentage %>%<br>
+      </div>
+      <div>
+         FTM: <%= stat.free_throws_made %><br>
+      </div>
+      <div>
+         FTA: <%= stat.free_throw_attempts %><br>
+      </div>
+      <div>
+         FT%: <%= stat.free_throw_percentage %>%<br>
+      </div>
+      <div>
+         REB: <%= stat.rebounds %><br>
+      </div>
+      <div>
+         AST: <%= stat.assists %><br>
+      </div>
+      <div>
+         STL: <%= stat.steals %><br>
+      </div>
+      <div>
+         BLK: <%= stat.blocks %><br>
+      </div>
+      <div>
+         PFL: <%= stat.fouls %>
+      </div>
+      <br>
+    </div>
+  <% end %>
+</div>

@@ -1,5 +1,8 @@
-<div class="nested-fields well">
-  <%= f.object.player_name %>
+<div class="nested-fields well container-fluid">
+  <div class="name">
+    <h5><%= f.object.player_name %></h5>
+  </div>
+  <br>
   <div class="input">
     <%= f.label :field_goal_made, "FGM" %>
     <%= f.number_field :field_goal_made, class: :text_field, step: :any%>
