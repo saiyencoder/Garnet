@@ -32,13 +32,13 @@ Rails.application.routes.draw do
 
   get '/stats' => 'stats#index'
   get '/stats/new/:id' => 'stats#new'
-  post '/stats' => 'stats#create'
-  get '/stats/:game_id/edit_stats' => 'stats#edit_stats'
-  patch '/stats/:game_id/edit_stats' => 'stats#edit_stats'
+  post '/stats/:game_id/create' => 'stats#create'
   get '/stats/:id' => 'stats#show'
-  get '/stats/:id/edit' => 'stats#edit'
-  patch '/stats/:id' => 'stats#update'
+  get '/stats/:game_id/edit' => 'stats#edit'
+  patch '/stats/:game_id/update' => 'stats#update'
   delete '/stats/:id' => 'stats#destroy'
-  post '/stats/:game_id/create_stats' => 'stats#create_stats'
+  # get '/stats/:game_id/edit_stats' => 'stats#edit_stats'
+  # patch '/stats/:game_id/edit_stats' => 'stats#edit_stats'
+  # post '/stats/:game_id/create_stats' => 'stats#create_stats'
 
 end

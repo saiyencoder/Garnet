@@ -5,6 +5,8 @@
 <% end %>
 <h3>Team: <%= @player.team.name %></h3>
 
+
+<br><br>
 <% @player.stats.each do |stat| %>
   Game(Week): <%= stat.game.week %><br>
   Points: <%= stat.points %><br>

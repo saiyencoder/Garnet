@@ -3,9 +3,13 @@
 
 <%= form_for(@game, url: "/games/#{@game.id}/", method: :patch) do |f| %>
     <div>
-      <%= f.fields_for :stats do |stat| %>
-        <%= render 'stat_fields', f: stat %>
-      <% end %>
+      <div class="row">
+        <%= f.fields_for :stats do |stat| %>
+          <div class="col-md-3">
+          <%= render 'stat_fields', f: stat %>
+          </div>
+        <% end %>
+      </div>
     </div>
   <br>
   <%= f.submit 'Update Stats', class: "btn btn-primary"%>

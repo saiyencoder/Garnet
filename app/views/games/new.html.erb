@@ -1,18 +1,20 @@
-<h1>New Game!</h1>
+<h1>Create a New Game</h1>
 
 <%= form_for(@game, url: "/games", method: :post) do |f| %>
   <%= f.hidden_field :season_id, value: @season.id %>
   <div>
-    Team Stats For:
+    <h4>Team Stats For:</h4>
     <%= f.collection_select :team_id, @teams, :id, :name %>
   </div>
   <div>
-    Week:
+    <h4>Week:</h4>
     <%= f.text_field :week %>
   </div>
   <div>
-    Scorer:
+    <h4>Scorer:</h4>
     <%= f.text_field :scorer %>
   </div>
-  <%= f.submit "Create Game" %>
+  <br>
+  <%= f.submit "Create Game", class: "btn btn-inverse btn-primary" %>
+  <%= link_to "Cancel", "/games", class: "btn btn-inverse btn-warning" %>
 <% end %>

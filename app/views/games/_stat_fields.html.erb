@@ -1,51 +1,59 @@
 <div class="nested-fields well">
   <%= f.object.player_name %>
-    <div>
-      <%= f.label :field_goal_made, "FGM" %>
-      <%= f.text_field :field_goal_made %>
-    </div>
-    <div>
-      <%= f.label :field_goal_attempt, "FGA" %>
-      <%= f.text_field :field_goal_attempt %>
-    </div>
-    <div>
-      <%= f.label :three_point_made, "3-FGM" %>
-      <%= f.text_field :three_point_made %>
-    </div>
-    <div>
-      <%= f.label :three_point_attempt, "3-FGA" %>
-      <%= f.text_field :three_point_attempt %>
-    </div>
-    <div>
-      <%= f.label :free_throws_made, "FTM" %>
-      <%= f.text_field :free_throws_made %>
-    </div>
-    <div>
-      <%= f.label :free_throw_attempts, "FTA" %>
-      <%= f.text_field :free_throw_attempts %>
-    </div>
-    <div>
-      <%= f.label :rebounds, "Rebounds" %>
-      <%= f.text_field :rebounds %>
-    </div>
-    <div>
-      <%= f.label :assists, "Assists" %>
-      <%= f.text_field :assists %>
-    </div>
-    <div>
-      <%= f.label :steals, "Steals" %>
-      <%= f.text_field :steals %>
-    </div>
-    <div>
-      <%= f.label :blocks, "Blocks" %>
-      <%= f.text_field :blocks %>
-    </div>
-    <div>
-      <%= f.label :fouls, "Fouls" %>
-      <%= f.text_field :fouls %>
-    </div>
-    <div>
-      <%= f.label :points, "Points"%>
-      <%= f.text_field :points, value: (f.object.field_goal_made*2) %>
-    </div>
+  <div>
+    <%= f.label :field_goal_made, "FGM" %>
+    <%= f.text_field :field_goal_made %>
+  </div>
+  <div>
+    <%= f.label :field_goal_attempt, "FGA" %>
+    <%= f.text_field :field_goal_attempt %>
+  </div>
+  <div>
+    <%= f.label :three_point_made, "3-FGM" %>
+    <%= f.text_field :three_point_made %>
+  </div>
+  <div>
+    <%= f.label :three_point_attempt, "3-FGA" %>
+    <%= f.text_field :three_point_attempt %>
+  </div>
+  <div>
+    <%= f.label :free_throws_made, "FTM" %>
+    <%= f.text_field :free_throws_made %>
+  </div>
+  <div>
+    <%= f.label :free_throw_attempts, "FTA" %>
+    <%= f.text_field :free_throw_attempts %>
+  </div>
+  <div>
+    <%= f.label :rebounds, "Rebounds" %>
+    <%= f.text_field :rebounds %>
+  </div>
+  <div>
+    <%= f.label :assists, "Assists" %>
+    <%= f.text_field :assists %>
+  </div>
+  <div>
+    <%= f.label :steals, "Steals" %>
+    <%= f.text_field :steals %>
+  </div>
+  <div>
+    <%= f.label :blocks, "Blocks" %>
+    <%= f.text_field :blocks %>
+  </div>
+  <div>
+    <%= f.label :fouls, "Fouls" %>
+    <%= f.text_field :fouls %>
+  </div>
+  <div>
+    <h4>Points: </h4> <%= f.object.points %>
+  </div>
+  <div>
+    <h4>FG%: </h4> <%= f.object.field_goal_percentage %>
+  </div>
+  <div>
+    <h4>3FG%: </h4> <%= f.object.three_point_field_goal_percentage %>
+  </div>
+  <div>
+    <h4>FT%: </h4> <%= f.object.free_throw_percentage %>
+  </div>
 </div>

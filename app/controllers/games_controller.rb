@@ -37,12 +37,17 @@ class GamesController < ApplicationController
   def update
     @game = Game.find(params[:id])
     @game.update(game_params)
+    @game.stats.each do |stat|
+      stat.points = (stat.field_goal_made * 2) + (stat.three_point_made * 3) + (stat.free_throws_made)
+      stat.field_goal_percentage = ((stat.field_goal_made.to_f) / (stat.field_goal_attempt.to_f)) * 100
+      stat.three_point_field_goal_percentage = ((stat.three_point_made.to_f) / (stat.three_point_attempt.to_f)) * 100
+      stat.free_throw_percentage = ((stat.free_throws_made.to_f) / (stat.free_throw_attempts.to_f)) * 100
+      @game.update(game_params)
+    end
                       
     flash[:success] = "Game Info Updated"
     redirect_to "/games/#{@game.id}/edit_stats"
   end
-
-
 
 
   def destroy
@@ -52,10 +57,11 @@ class GamesController < ApplicationController
     redirect_to "/games"
   end
 
+
   private
 
   def game_params
-    params.require(:game).permit(:id, :team_id, :week, :scorer, :season_id, stats_attributes: [:id, :player_name, :field_goal_made, :field_goal_attempt, :three_point_made, :three_point_attempt, :free_throws_made, :free_throw_attempts, :rebounds, :assists, :steals, :blocks, :fouls])
+    params.require(:game).permit(:id, :team_id, :week, :scorer, :season_id, stats_attributes: [:id, :player_name, :field_goal_made, :field_goal_attempt, :three_point_made, :three_point_attempt, :free_throws_made, :free_throw_attempts, :rebounds, :assists, :steals, :blocks, :fouls, :points, :field_goal_percentage, :three_point_field_goal_percentage, :free_throw_percentage])
   end
 
 end

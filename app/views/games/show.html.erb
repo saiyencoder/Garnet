@@ -5,8 +5,8 @@
 <h2>Scorer: <%= @game.scorer %></h2>
 
 <div>
-<%#= link_to "Create A Stat Sheet", "/stats/new/#{@game.id}", class: "btn btn-primary" %>
-<%= link_to "Create A Stat Sheet", "/stats/#{@game.id}/create_stats", method: :post, class: "btn btn-primary" %>
+<%= link_to "Create A Stat Sheet", "/stats/#{@game.id}/create", method: :post, class: "btn btn-primary" %>
+<%#= link_to "Create A Stat Sheet", "/stats/#{@game.id}/create_stats", method: :post, class: "btn btn-primary" %>
 <%= link_to "Edit Game Info", "/games/#{ @game.id }/edit", class: "btn btn-warning" %>
 <%= link_to "Delete Game", "/games/#{ @game.id }", method: :delete, class: "btn btn-danger" %>
 </div>
