@@ -1,48 +1,48 @@
 <div class="nested-fields well">
   <%= f.object.player_name %>
-  <div>
+  <div class="input">
     <%= f.label :field_goal_made, "FGM" %>
-    <%= f.text_field :field_goal_made %>
+    <%= f.number_field :field_goal_made, class: :text_field, step: :any%>
   </div>
-  <div>
+  <div class="input">
     <%= f.label :field_goal_attempt, "FGA" %>
-    <%= f.text_field :field_goal_attempt %>
+    <%= f.number_field :field_goal_attempt, class: :text_field, step: :any %>
   </div>
-  <div>
+  <div class="input">
     <%= f.label :three_point_made, "3-FGM" %>
-    <%= f.text_field :three_point_made %>
+    <%= f.number_field :three_point_made, class: :text_field, step: :any %>
   </div>
-  <div>
+  <div class="input">
     <%= f.label :three_point_attempt, "3-FGA" %>
-    <%= f.text_field :three_point_attempt %>
+    <%= f.number_field :three_point_attempt, class: :text_field, step: :any %>
   </div>
-  <div>
+  <div class="input">
     <%= f.label :free_throws_made, "FTM" %>
-    <%= f.text_field :free_throws_made %>
+    <%= f.number_field :free_throws_made, class: :text_field, step: :any %>
   </div>
-  <div>
+  <div class="input">
     <%= f.label :free_throw_attempts, "FTA" %>
-    <%= f.text_field :free_throw_attempts %>
+    <%= f.number_field :free_throw_attempts, class: :text_field, step: :any %>
   </div>
-  <div>
+  <div class="input">
     <%= f.label :rebounds, "Rebounds" %>
-    <%= f.text_field :rebounds %>
+    <%= f.number_field :rebounds, class: :text_field, step: :any %>
   </div>
-  <div>
+  <div class="input">
     <%= f.label :assists, "Assists" %>
-    <%= f.text_field :assists %>
+    <%= f.number_field :assists, class: :text_field, step: :any %>
   </div>
-  <div>
+  <div class="input">
     <%= f.label :steals, "Steals" %>
-    <%= f.text_field :steals %>
+    <%= f.number_field :steals, class: :text_field, step: :any %>
   </div>
-  <div>
+  <div class="input">
     <%= f.label :blocks, "Blocks" %>
-    <%= f.text_field :blocks %>
+    <%= f.number_field :blocks, class: :text_field, step: :any %>
   </div>
-  <div>
+  <div class="input">
     <%= f.label :fouls, "Fouls" %>
-    <%= f.text_field :fouls %>
+    <%= f.number_field :fouls, class: :text_field, step: :any %>
   </div>
   <div>
     <h4>Points: </h4> <%= f.object.points %>
