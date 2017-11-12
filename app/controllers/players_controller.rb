@@ -37,6 +37,7 @@ class PlayersController < ApplicationController
 
   def show
     @player = Player.find(params[:id])
+    @player.averages
   end
 
   def edit
@@ -64,4 +65,6 @@ class PlayersController < ApplicationController
     flash[:warning] = "Player Has Been Removed"
     redirect_to '/'
   end
+
+
 end

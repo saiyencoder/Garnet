@@ -1,16 +1,15 @@
 <h1><%= @season.quarter %> Season for <%= @season.year %>:</h1>
 
+<a href="/games/new/<%= @season.id %>">Add New Game</a> |
+<a href="/seasons/<%= @season.id %>/edit">Edit Season Info</a>
+
 <h2>Games</h2>
-<% @games.each do |game| %>
+<% @games.order(:week).each do |game| %>
   <div>
-    <h3><a href="">Team: <%= game.team.name %> | Week: <%= game.week %></a></h3>
+    <h3><a href="/games/<%= game.id %>">Team: <%= game.team.name %> | Week: <%= game.week %></a></h3>
     <h5>Score Keeper: <%= game.scorer %></h5>
     <br>
   </div>
 <% end %>
 
-<a href=""></a>
-
-<%= link_to "Create a New Game for Season", "/games/new/#{@season.id}", class: "btn btn-primary" %>
-<%= link_to "Edit Season Info", "/seasons/#{ @season.id }/edit", class: "btn btn-warning" %>
 <%= link_to "Delete Season", "/seasons/#{ @season.id }", method: :delete, class: "btn btn-danger" %>

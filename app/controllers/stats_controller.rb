@@ -45,16 +45,6 @@ class StatsController < ApplicationController
     @players = @stat.game.team.players
   end
 
-  ###############
-
-  def teamstats
-    # @stats = Stat.where(game_id: params[:game_id])
-    @game = Game.find(params[:game_id])
-    @stats = Stat.where(game_id: @game.id)
-  end
-
-#################
-
   def edit
     @game = Game.find(params[:game_id])
     @stats = Stat.where(game_id: @game.id)
@@ -87,6 +77,11 @@ class StatsController < ApplicationController
     @stat.destroy
     flash[:success] = "Stats Deleted"
     redirect_to "/stats"
+  end
+
+  def teamstats
+    @game = Game.find(params[:game_id])
+    @stats = Stat.where(game_id: @game.id)
   end
 
   # def create_stats

@@ -1,3 +1,27 @@
 <h1><%= @team.name %></h1>
+<a href="/teams/<%= @team.id %>/edit">Edit Team Name</a>
+<br><br>
 
-<%= link_to "Edit Team Name", "/teams/#{ @team.id }/edit", class: "btn btn-warning" %>
+<h2>Season Average</h2>
+<table class="table table-bordered">
+  <tr>
+    <th>PPG</th>
+    <th>RPG</th>
+    <th>APG</th>
+    <th>SPG</th>
+    <th>BPG</th>
+    <th>FPG</th>
+  </tr>
+  <tr>
+    <th><%= @team.team_points_per_game %></th>
+    <th><%= @team.team_rebounds_per_game %></th>
+    <th><%= @team.team_assists_per_game %></th>
+    <th><%= @team.team_steals_per_game %></th>
+    <th><%= @team.team_blocks_per_game %></th>
+    <th><%= @team.team_fouls_per_game %></th>
+  </tr>
+</table>
+<br>
+
+
+

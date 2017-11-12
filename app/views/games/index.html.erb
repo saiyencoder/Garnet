@@ -1,5 +1,7 @@
 <h1>Games</h1>
 
-<% @games.each do |game| %>
+<% @games.order(:week).each do |game| %>
   <h3><a href="/games/<%= game.id %>">Week: <%= game.week %> Team: <%= game.team.name %></a></h3>
 <% end %>
+
+

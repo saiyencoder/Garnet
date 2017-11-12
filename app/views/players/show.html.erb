@@ -3,29 +3,55 @@
 <% else %>
   <h1><%= @player.name %></h1>
 <% end %>
-<h3>Team: <%= @player.team.name %></h3>
+<h4>Team: <%= @player.team.name %></h4>
+<br>
 
+<h2>Season Averages</h2>
+<table class="table table-bordered">
+  <tr>
+    <th>PPG</th>
+    <th>RPG</th>
+    <th>APG</th>
+    <th>SPG</th>
+    <th>BPG</th>
+    <th>FPG</th>
+  </tr>
+  <tr>
+    <th><%= @player.points_per_game %></th>
+    <th><%= @player.rebounds_per_game %></th>
+    <th><%= @player.assists_per_game %></th>
+    <th><%= @player.steals_per_game %></th>
+    <th><%= @player.blocks_per_game %></th>
+    <th><%= @player.fouls_per_game %></th>
+  </tr>
+</table>
+<br>
 
-<br><br>
-<% @player.stats.each do |stat| %>
-  Game(Week): <%= stat.game.week %><br>
-  Points: <%= stat.points %><br>
-  FGM: <%= stat.field_goal_made %><br>
-  FGA: <%= stat.field_goal_attempt %><br>
-  FG%: <%= stat.field_goal_percentage %>%<br>
-  3PM: <%= stat.three_point_made %><br>
-  3PA: <%= stat.three_point_attempt %><br>
-  3P%: <%= stat.field_goal_attempt %>%<br>
-  FTM: <%= stat.free_throws_made %><br>
-  FTA: <%= stat.free_throw_attempts %><br>
-  FT%: <%= stat.free_throw_percentage %>%<br>
-  REB: <%= stat.rebounds %><br>
-  AST: <%= stat.assists %><br>
-  STL: <%= stat.steals %><br>
-  BLK: <%= stat.blocks %><br>
-  PFL: <%= stat.fouls %><br>
-  <br>
-<% end %>
+<h2>Games:</h2>
+<div class="row">
+  <% @player.stats.order(:id).each do |stat| %>
+    <div class="col-md-2">
+      Season: <%= stat.game.season.quarter %> | <%= stat.game.season.year %><br>
+      Game(Week): <%= stat.game.week %><br>
+      Points: <%= stat.points %><br>
+      FGM: <%= stat.field_goal_made %><br>
+      FGA: <%= stat.field_goal_attempt %><br>
+      FG%: <%= stat.field_goal_percentage %>%<br>
+      3PM: <%= stat.three_point_made %><br>
+      3PA: <%= stat.three_point_attempt %><br>
+      3P%: <%= stat.field_goal_attempt %>%<br>
+      FTM: <%= stat.free_throws_made %><br>
+      FTA: <%= stat.free_throw_attempts %><br>
+      FT%: <%= stat.free_throw_percentage %>%<br>
+      REB: <%= stat.rebounds %><br>
+      AST: <%= stat.assists %><br>
+      STL: <%= stat.steals %><br>
+      BLK: <%= stat.blocks %><br>
+      PFL: <%= stat.fouls %><br>
+      <br>
+    </div>
+  <% end %>
+</div>
 
 <div>
   <%= link_to "Edit Player", "/players/#{ @player.id }/edit", class: "btn btn-warning" %>

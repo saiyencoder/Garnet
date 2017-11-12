@@ -16,5 +16,5 @@
   </div>
   <br>
   <%= f.submit "Edit Game", class: "btn btn-inverse btn-primary" %>
-  <%= link_to "Cancel", "/games", class: "btn btn-inverse btn-warning" %>
+  <%= link_to "Cancel", "/games/#{@game.id}", class: "btn btn-inverse btn-warning" %>
 <% end %>

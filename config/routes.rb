@@ -34,14 +34,13 @@ Rails.application.routes.draw do
   get '/stats/new/:id' => 'stats#new'
   post '/stats/:game_id/create' => 'stats#create'
   get '/stats/:id' => 'stats#show'
-
   get '/stats/:game_id/teamstats' => 'stats#teamstats'
-
   get '/stats/:game_id/edit' => 'stats#edit'
   patch '/stats/:game_id/update' => 'stats#update'
   delete '/stats/:id' => 'stats#destroy'
-  # get '/stats/:game_id/edit_stats' => 'stats#edit_stats'
-  # patch '/stats/:game_id/edit_stats' => 'stats#edit_stats'
-  # post '/stats/:game_id/create_stats' => 'stats#create_stats'
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
 
 end

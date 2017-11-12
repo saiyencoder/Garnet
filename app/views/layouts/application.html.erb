@@ -15,6 +15,12 @@
     <a href="/stats">Stats</a>
     <a href="/teams">Teams</a>
     <a href="/players">Players</a>
+    <% if current_player %>
+      <a href="/players/<%= current_player.id %>"><%= current_player && current_player.name  %></a>
+      <a href="/logout">Logout</a>
+    <% else %>
+      <a href="/login">Login</a>
+    <% end %>
 
     <div class="container">
       <% flash.each do |name,message| %>    

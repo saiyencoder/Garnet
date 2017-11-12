@@ -4,10 +4,11 @@
   <div>
     Quarter: <input type="text" name="quarter" value="<%= @season.quarter %>">
   </div>
+  <br>
   <div>
     Year: <input type="text" name="year" value="<%= @season.year %>">
   </div>
   <br>
   <input type="submit" value="Update Season Info", class="btn btn-inverse btn-primary" >
-  <%= link_to "Cancel", "/games", class: "btn btn-inverse btn-warning" %>
+  <%= link_to "Cancel", "/seasons/#{@season.id}", class: "btn btn-inverse btn-warning" %>
 <% end %>

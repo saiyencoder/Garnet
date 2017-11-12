@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171110013749) do
+ActiveRecord::Schema.define(version: 20171112035021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,12 @@ ActiveRecord::Schema.define(version: 20171110013749) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "points_per_game", precision: 4, scale: 1
+    t.decimal "rebounds_per_game", precision: 4, scale: 1
+    t.decimal "assists_per_game", precision: 4, scale: 1
+    t.decimal "steals_per_game", precision: 4, scale: 1
+    t.decimal "blocks_per_game", precision: 4, scale: 1
+    t.decimal "fouls_per_game", precision: 4, scale: 1
   end
 
   create_table "seasons", force: :cascade do |t|
@@ -79,6 +85,14 @@ ActiveRecord::Schema.define(version: 20171110013749) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.integer "team_against"
+    t.decimal "team_total_points", precision: 4, scale: 1
+    t.decimal "team_points_per_game", precision: 4, scale: 1
+    t.decimal "team_rebounds_per_game", precision: 4, scale: 1
+    t.decimal "team_assists_per_game", precision: 4, scale: 1
+    t.decimal "team_steals_per_game", precision: 4, scale: 1
+    t.decimal "team_blocks_per_game", precision: 4, scale: 1
+    t.decimal "team_fouls_per_game", precision: 4, scale: 1
   end
 
 end

@@ -1,11 +1,12 @@
 <h1>Create Season</h1>
 
 <%= form_tag "/seasons", method: :post do %>
-  <div>
+  <div class="season">
     Quarter: <input type="text" name="quarter">
   </div>
-  <div>
+  <div class="season">
     Year: <input type="text" name="year">
   </div>
-  <input type="submit" value="Create Season">
+  <br>
+  <input type="submit" value="Create Season" class="btn btn-inverse btn-primary" >
 <% end %>
