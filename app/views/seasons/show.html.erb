@@ -1,7 +1,9 @@
 <h1><%= @season.quarter %> Season for <%= @season.year %>:</h1>
 
-<a href="/games/new/<%= @season.id %>">Add New Game</a> |
-<a href="/seasons/<%= @season.id %>/edit">Edit Season Info</a>
+<%# if current_player && current_player.commissioner %>
+  <a href="/games/new/<%= @season.id %>">Add New Game</a> |
+  <a href="/seasons/<%= @season.id %>/edit">Edit Season Info</a>
+<%# end %>
 
 <h2>Games</h2>
 <% @games.order(:week).each do |game| %>
@@ -12,4 +14,6 @@
   </div>
 <% end %>
 
-<%= link_to "Delete Season", "/seasons/#{ @season.id }", method: :delete, class: "btn btn-danger" %>
+<% if current_player && current_player.commissioner %>
+  <%= link_to "Delete Season", "/seasons/#{ @season.id }", method: :delete, class: "btn btn-danger" %>
+<% end %>

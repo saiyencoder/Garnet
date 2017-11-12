@@ -1,8 +1,6 @@
 .container-fluid input{
   height: 25px;
   width: 40px;
-  // margin-left: 25px;
-  // display: block;
   float: right;
 }
 
@@ -17,4 +15,57 @@
 .table th {
   text-align: center;
 }
+
+body {
+  padding-top: 100px;
+  background-color: #C0C0C0;
+}
+
+.jumbotron h1{
+  text-align: center;
+  color: Black;
+  font-family: "Lucida Console", Monaco, monospace;
+
+}
+
+.jumbotron {
+  background-image: url(https://scontent.ford1-1.fna.fbcdn.net/v/t1.0-9/20429934_10155563524307964_4297159489047546308_n.jpg?oh=43dbae5215267a8b95c98def4b62ae4b&oe=5AAB8CB4);
+  background-position: 0%15%;
+  background-size: cover;
+  height: 250px;
+}
+
+.panel-heading {
+  text-align: center;
+  font-size: 25px;
+}
+
+.panel-body {
+  font-size: 20px;
+}
+
+.panel-body img{
+  width: 20%;
+}
+.sign-off {
+  text-align: left;
+}
+
+.subzero {
+  font-size: 15px;
+  text-align: center;
+}
+
+.subzero img{
+  width: 50%;
+}
+
+.table {
+  border: solid;
+}
+
+
+
+
+
 

@@ -6,7 +6,7 @@
 <h4>Team: <%= @player.team.name %></h4>
 <br>
 
-<h2>Season Averages</h2>
+<h2>Career Averages</h2>
 <table class="table table-bordered">
   <tr>
     <th>PPG</th>
@@ -53,7 +53,9 @@
   <% end %>
 </div>
 
-<div>
-  <%= link_to "Edit Player", "/players/#{ @player.id }/edit", class: "btn btn-warning" %>
-  <%= link_to "Delete Player", "/players/#{ @player.id }", method: :delete, class: "btn btn-danger" %>
-</div>
+<% if current_player && current_player.commissioner %>
+  <div>
+    <%= link_to "Edit Player", "/players/#{ @player.id }/edit", class: "btn btn-warning" %>
+    <%= link_to "Delete Player", "/players/#{ @player.id }", method: :delete, class: "btn btn-danger" %>
+  </div>
+<% end %>

@@ -5,4 +5,6 @@
 <% end %>
 <br>
 
-<a href="/players/new">Add New Player</a>
+<% if current_player && current_player.commissioner %>
+  <a href="/players/new">Add New Player</a>
+<% end %>

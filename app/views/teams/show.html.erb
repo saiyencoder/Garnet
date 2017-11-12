@@ -1,6 +1,8 @@
 <h1><%= @team.name %></h1>
+<% if current_player && current_player.commissioner  %>
 <a href="/teams/<%= @team.id %>/edit">Edit Team Name</a>
 <br><br>
+<% end %>
 
 <h2>Season Average</h2>
 <table class="table table-bordered">

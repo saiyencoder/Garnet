@@ -1,10 +1,25 @@
 <h1>Game Sheet Info for <%= @game.team.name %></h1>
-<a href="/games/<%= @game.id %>/edit">Edit Game Info</a> 
+
+<% if current_player && current_player.commissioner %>
+  <a href="/games/<%= @game.id %>/edit">Edit Game Info</a>
+<% end %> 
 
 <h2>Week: <%= @game.week %></h2>
 <h2>Scorer: <%= @game.scorer %></h2>
 <br>
-<div>
-<%= link_to "Begin Game", "/stats/#{@game.id}/create", method: :post, class: "btn btn-primary" %>
-<%= link_to "Delete Game", "/games/#{ @game.id }", method: :delete, class: "btn btn-danger" %>
-</div>
+
+
+<% if current_player %>
+  <div>
+    <%= link_to "Check Stats for this Game", "/stats/#{@game.id}/teamstats", class: "btn btn-primary"%>
+  </div><br>
+<% end %>
+
+<%# if current_player && current_player.commissioner %>
+  <div>
+    <%= link_to "Begin Game", "/stats/#{@game.id}/create", method: :post, class: "btn btn-primary" %>
+    <%= link_to "Delete Game", "/games/#{ @game.id }", method: :delete, class: "btn btn-danger" %>
+  </div>
+<%# end %>
+
+<%# end %>

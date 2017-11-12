@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get '/' => 'seasons#homepage'
+
   get '/seasons' => 'seasons#index'
   get '/seasons/new' => 'seasons#new'
   post '/seasons' => 'seasons#create'

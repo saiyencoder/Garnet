@@ -6,20 +6,20 @@ class SessionsController < ApplicationController
 
   def create
 
-    user = User.find_by(email: params[:email])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
+    @player = Player.find_by(name: params[:name])
+    if @player && @player.authenticate(params[:password])
+      session[:player_id] = @player.id
       flash[:success] = "Successfully logged in"
       redirect_to '/'
     else
-      flash[:warning] = "Invalid email or password"
+      flash[:warning] = "Invalid name or password"
       redirect_to '/login'
     end
     
   end
 
   def destroy
-    session[:user_id] = nil
+    session[:player_id] = nil
     flash[:success] = "Logged out"
     redirect_to '/login'
   end

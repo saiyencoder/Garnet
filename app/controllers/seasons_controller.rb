@@ -1,4 +1,9 @@
 class SeasonsController < ApplicationController
+
+  def homepage
+    
+  end
+
   def index
     @seasons = Season.all
   end

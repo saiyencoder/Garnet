@@ -4,7 +4,7 @@
 <%= form_for(@game, url: "/games/#{@game.id}/", method: :patch) do |f| %>
     <div>
       <div class="row">
-        <%= f.fields_for :stats do |stat| %>
+        <%= f.fields_for :stats, f.object.stats.order(:player_name) do |stat| %>
           <div class="col-md-2">
           <%= render 'stat_fields', f: stat %>
           </div>

@@ -12,8 +12,8 @@ class Player < ApplicationRecord
     total_steals = 0
     total_blocks = 0
     total_fouls = 0
-
     games = self.stats.length
+
     self.stats.each do |stat|
       total_points += stat.points
       total_rebounds += stat.rebounds
@@ -29,7 +29,7 @@ class Player < ApplicationRecord
     self.steals_per_game = (total_steals).to_f/(games).to_f
     self.blocks_per_game = (total_blocks).to_f/(games).to_f
     self.fouls_per_game = (total_fouls).to_f/(games).to_f    
-    
+
   end
 
 end

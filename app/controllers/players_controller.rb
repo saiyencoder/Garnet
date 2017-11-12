@@ -1,13 +1,9 @@
 class PlayersController < ApplicationController
+before_action :authenticate_commish!, except: [:index, :show]
+  
   def index
     @players = Player.all
     @games = Game.all
-  end
-
-  def show
-    @player = Player.find(params[:id])
-    @game = Game.find(params[:id])
-    @stat = Stat.find(params[:id])
   end
 
   def new
