@@ -1,19 +1,39 @@
-<h1><%= @season.quarter %> Season for <%= @season.year %>:</h1>
-
+<div class="panel panel-default">
+  <div class="panel-heading"><%= @season.year %> <%= @season.quarter %> Season Games</div>
 <%# if current_player && current_player.commissioner %>
   <a href="/games/new/<%= @season.id %>">Add New Game</a> |
   <a href="/seasons/<%= @season.id %>/edit">Edit Season Info</a>
 <%# end %>
-
-<h2>Games</h2>
-<% @games.order(:week).each do |game| %>
-  <div>
-    <h3><a href="/games/<%= game.id %>">Team: <%= game.team.name %> | Week: <%= game.week %></a></h3>
-    <h5>Score Keeper: <%= game.scorer %></h5>
-    <br>
-  </div>
-<% end %>
+</div>
 
 <% if current_player && current_player.commissioner %>
-  <%= link_to "Delete Season", "/seasons/#{ @season.id }", method: :delete, class: "btn btn-danger" %>
+  <a href="/seasons/new">Start a new Season</a>
 <% end %>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <table class="table table-bordered">
+        <tr>
+          <th class="col-md-1">Week</th>
+          <th class="col-md-1">Stats For</th>
+          <th class="col-md-1">Against</th>
+          <th class="col-md-1">Scorer</th>
+        </tr>
+       <% @games.order(:week).each do |game| %>
+        <tr>
+          <th><a href="/games/<%= game.id %>"><%= game.week %></th>
+          <th><a href="/games/<%= game.id %>"><%= game.team.name %></th>
+          <th><a href="/games/<%= game.id %>"><%= Team.find(game.team_against).name%></th>
+          <th><a href="/games/<%= game.id %>"><%= game.scorer %></th>
+        </tr>
+        <% end %>
+    </table>
+</div>
+
+
+
+<%# if current_player && current_player.commissioner %>
+  <%= link_to "Delete Season", "/seasons/#{ @season.id }", method: :delete, class: "btn btn-danger season-btn-danger" %>
+<%# end %>
+
+
+

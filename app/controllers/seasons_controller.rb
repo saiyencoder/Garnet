@@ -22,6 +22,7 @@ class SeasonsController < ApplicationController
   end
 
   def show
+    @team = Team.all
     @season = Season.find(params[:id])
     @games = Game.where("season_id = ?", @season.id)
   end

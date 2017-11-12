@@ -23,6 +23,7 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @team_against = Team.find(@game.team_against).name
   end
 
   def edit
@@ -61,7 +62,7 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:id, :team_id, :week, :scorer, :season_id, stats_attributes: [:id, :player_name, :field_goal_made, :field_goal_attempt, :three_point_made, :three_point_attempt, :free_throws_made, :free_throw_attempts, :rebounds, :assists, :steals, :blocks, :fouls, :points, :field_goal_percentage, :three_point_field_goal_percentage, :free_throw_percentage])
+    params.require(:game).permit(:id, :team_id, :team_against, :week, :scorer, :season_id, stats_attributes: [:id, :player_name, :field_goal_made, :field_goal_attempt, :three_point_made, :three_point_attempt, :free_throws_made, :free_throw_attempts, :rebounds, :assists, :steals, :blocks, :fouls, :points, :field_goal_percentage, :three_point_field_goal_percentage, :free_throw_percentage])
   end
 
 end

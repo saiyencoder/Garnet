@@ -7,6 +7,10 @@
     <%= f.collection_select :team_id, @teams, :id, :name %>
   </div>
   <div>
+    <h4>Playing Against:</h4>
+    <%= f.collection_select :team_against, @teams, :id, :name %>
+  </div>
+  <div>
     <h4>Week:</h4>
     <%= f.text_field :week %>
   </div>
