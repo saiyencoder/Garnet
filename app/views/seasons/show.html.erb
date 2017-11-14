@@ -1,9 +1,9 @@
 <div class="panel panel-default">
   <div class="panel-heading"><%= @season.year %> <%= @season.quarter %> Season Games</div>
-<%# if current_player && current_player.commissioner %>
+<% if current_player && current_player.commissioner %>
   <a href="/games/new/<%= @season.id %>" style="text-align:center; display: block;">Add New Game</a>
   <a href="/seasons/<%= @season.id %>/edit" style="text-align:center; display: block;">Edit Season Info</a>
-<%# end %>
+<% end %>
 </div>
 
 <div class="panel panel-default">
@@ -28,9 +28,9 @@
 
 
 
-<%# if current_player && current_player.commissioner %>
+<% if current_player && current_player.commissioner %>
   <%= link_to "Delete Season", "/seasons/#{ @season.id }", method: :delete, class: "btn btn-danger season-btn-danger" %>
-<%# end %>
+<% end %>
 
 
 

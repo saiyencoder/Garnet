@@ -1,4 +1,6 @@
 class SeasonsController < ApplicationController
+before_action :authenticate_commish!, except: [:homepage, :index, :show]
+
 
   def homepage
     

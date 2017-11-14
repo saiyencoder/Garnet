@@ -1,29 +1,38 @@
-<h1><%= @team.name %></h1>
-<% if current_player && current_player.commissioner  %>
-<a href="/teams/<%= @team.id %>/edit">Edit Team Name</a>
-<br><br>
-<% end %>
+<div class="panel panel-default">
+  <% if current_player && current_player.commissioner  %>
+    <div class="panel-heading" style="font-size: 40px;"><%= @team.name %></div>
+    <div><a href="/teams/<%= @team.id %>/edit" style="text-align:center; display: block;">Edit Team Name</a></div>
+  <% else %>
+    <div class="panel-heading" style="font-size: 40px;"><%= @team.name %></div>
+  <% end %>
+</div>
 
-<h2>Season Average</h2>
-<table class="table table-bordered">
-  <tr>
-    <th>PPG</th>
-    <th>RPG</th>
-    <th>APG</th>
-    <th>SPG</th>
-    <th>BPG</th>
-    <th>FPG</th>
-  </tr>
-  <tr>
-    <th><%= @team.team_points_per_game %></th>
-    <th><%= @team.team_rebounds_per_game %></th>
-    <th><%= @team.team_assists_per_game %></th>
-    <th><%= @team.team_steals_per_game %></th>
-    <th><%= @team.team_blocks_per_game %></th>
-    <th><%= @team.team_fouls_per_game %></th>
-  </tr>
-</table>
-<br>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <table class="table table-bordered">
+      <tr>
+        <th colspan="6">Season Averages</th>
+      </tr>
+      <tr>
+        <th>PPG</th>
+        <th>RPG</th>
+        <th>APG</th>
+        <th>SPG</th>
+        <th>BPG</th>
+        <th>FPG</th>
+      </tr>
+      <tr>
+        <th><%= @team.team_points_per_game %></th>
+        <th><%= @team.team_rebounds_per_game %></th>
+        <th><%= @team.team_assists_per_game %></th>
+        <th><%= @team.team_steals_per_game %></th>
+        <th><%= @team.team_blocks_per_game %></th>
+        <th><%= @team.team_fouls_per_game %></th>
+      </tr>
+    </table>
+</div>
+</div>
+
 
 
 

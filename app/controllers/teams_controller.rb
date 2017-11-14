@@ -1,4 +1,6 @@
 class TeamsController < ApplicationController
+before_action :authenticate_commish!, except: [:index, :show]
+  
 
   def index
     @teams = Team.all
@@ -20,7 +22,7 @@ class TeamsController < ApplicationController
                   name: params[:name]
                   )
     flash[:success] = "Team Updated"
-    redirect_to "/teams"
+    redirect_to "/teams/#{@team.id}"
   end
 
 end

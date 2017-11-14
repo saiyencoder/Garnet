@@ -1,5 +1,5 @@
 class PlayersController < ApplicationController
-# before_action :authenticate_commish!, except: [:index, :show]
+before_action :authenticate_commish!, except: [:index, :show]
   
   def index
     @players = Player.all
@@ -23,7 +23,7 @@ class PlayersController < ApplicationController
     if @player
       session[:player_id] = @player.id
       flash[:success] = "Successfully created player"
-      redirect_to '/'
+      redirect_to '/players'
     else
       flash[:warning] = "Please check information again"
       redirect_to '/players/new'
@@ -61,6 +61,5 @@ class PlayersController < ApplicationController
     flash[:warning] = "Player Has Been Removed"
     redirect_to '/'
   end
-
 
 end

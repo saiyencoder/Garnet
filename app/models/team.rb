@@ -21,12 +21,16 @@ class Team < ApplicationRecord
         team_fouls += stat.fouls
       end
     end
+
     self.team_points_per_game = (team_total_points).to_f/(total_games).to_f
     self.team_rebounds_per_game = (team_rebounds).to_f/(total_games).to_f
     self.team_assists_per_game = (team_assists).to_f/(total_games).to_f
     self.team_steals_per_game = (team_steals).to_f/(total_games).to_f
     self.team_blocks_per_game = (team_blocks).to_f/(total_games).to_f
     self.team_fouls_per_game = (team_fouls).to_f/(total_games).to_f
+
   end
+
+
 
 end

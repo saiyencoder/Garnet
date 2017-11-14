@@ -85,9 +85,9 @@
   </div>
 </div>
 
-<%# if current_player && current_player.commissioner %>
+<% if current_player && current_player.commissioner %>
   <div>
     <%= link_to "Edit Player", "/players/#{ @player.id }/edit", class: "btn btn-warning" %>
     <%= link_to "Delete Player", "/players/#{ @player.id }", method: :delete, class: "btn btn-danger" %>
   </div>
-<%# end %>
+<% end %>

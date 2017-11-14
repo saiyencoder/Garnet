@@ -1,8 +1,8 @@
 <div class="panel panel-default">
   <div class="panel-heading" style="font-size: 50px;">Dee League Active Players</div>
-  <%# if current_player && current_player.commissioner %>
-  <a href="/players/new" style="text-align:center; display: block; font-size: 20px">Add New Player</a>
-<%# end %>
+  <% if current_player && current_player.commissioner %>
+    <a href="/players/new" style="text-align:center; display: block; font-size: 20px">Add New Player</a>
+  <% end %>
 </div>
 
 

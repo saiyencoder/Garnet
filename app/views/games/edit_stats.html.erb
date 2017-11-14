@@ -1,11 +1,3 @@
-<%# @game.stats.first.total_points_in_game%>
-
-<%@game.stats.each do |points|%>
-       <%=points.points%>
-    <% end %>
-
-    Rea:<%= @game.in_game_points %>
-
 <!-- Header -->
 <div class="panel panel-default">
   <div class="panel-heading" style="font-size: 50px;">Sonic Stats</div>
@@ -26,8 +18,7 @@
 <!-- Lower Panel -->
     <div class="panel" style="height:60px;">
       <%= f.submit 'Update Stats', class: "btn btn-primary stats_update"%>
-      Points <%# @team.team_total_points%>
-      <%= link_to 'Submit Stats', "/stats",class: "btn btn-danger stats_submit"%>
+      <%= link_to 'Submit Stats', "/stats/#{@game.id}/teamstats",class: "btn btn-danger stats_submit"%>
     </div>
   <br><br>
 <% end %>

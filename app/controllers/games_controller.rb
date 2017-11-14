@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+before_action :authenticate_commish!, except: [:index, :show]
 
   def index
     @games = Game.all
@@ -24,6 +25,7 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
     @team_against = Team.find(@game.team_against).name
+    @stats = Stat.all
   end
 
   def edit
@@ -45,8 +47,7 @@ class GamesController < ApplicationController
       stat.free_throw_percentage = ((stat.free_throws_made.to_f) / (stat.free_throw_attempts.to_f)) * 100
       @game.update(game_params)
     end
-
-                  
+       
     flash[:success] = "Game Info Updated"
     redirect_to "/games/#{@game.id}/edit_stats"
   end
