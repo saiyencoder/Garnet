@@ -1,12 +1,21 @@
-<h1>Login</h1>
+<div class="panel col-sm-offset-3" style="width:40%">
+  <div class="panel-heading" style="font-size: 40px;">Login</div>
+</div>
 
-<%= form_tag '/login', method: :post do %>
-  <div>
-    Name: <input type="text" name="name">
-  </div>
-  <div>
-    Password: <input type="password" name="password">
-  </div>
-  <input type="submit" value="Log In">
 
-<% end %>
+<div class="panel col-sm-offset-3" style="width:40%">
+  <div class="panel-body new-game-form">
+    <%= form_tag '/login', method: :post do %>
+      <div>
+        <h4>Name:</h4> 
+        <input type="text" name="name">
+      </div>
+      <div>
+        <h4>Password:</h4> 
+        <input type="password" name="password">
+      </div>
+      <br>
+      <input type="submit" value="Log In" class="btn btn-inverse btn-primary">
+      <%= link_to "Cancel", "/", class: "btn btn-inverse btn-warning" %>
+    <% end %>
+</div>

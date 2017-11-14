@@ -10,6 +10,7 @@
   <%# if current_player && current_player.commissioner %>
     <div class="show-buttons">
       <%= link_to "Begin Game", "/stats/#{@game.id}/create", method: :post, class: "btn btn-primary" %>
+      <%= link_to "Edit Game", "/games/#{@game.id}/edit", class: "btn btn-info" %>
       <%= link_to "Delete Game", "/games/#{ @game.id }", method: :delete, class: "btn btn-danger" %>
     </div>
   <%# end %>

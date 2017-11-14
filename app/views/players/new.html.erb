@@ -1,37 +1,48 @@
-<h1>New Player</h1>
+<div class="panel col-sm-offset-3" style="width:40%">
+  <div class="panel-heading" style="font-size: 40px;">Add a New Player</div>
+</div>
 
-<%= form_tag '/players', method: :post do %>
-  <div>
-    Name: <input type="text" name="name">
-  </div><br>
-  <div>
-    Team: 
-    <select name="team_id" >
-      <% @teams.each do |team| %>
-        <option value="<%= team.id %>" <%= 'selected="selected"' if team.id == @player.team_id%>><%= team.name %></option>         
-      <% end %>
-    </select>
+
+<div class="panel col-sm-offset-3" style="width:40%">
+  <div class="panel-body new-game-form">
+    <%= form_tag '/players', method: :post do %>
+      <div>
+        <h4>Name:</h4>
+        <input type="text" name="name">
+      </div>
+      <div>
+        <h4>Team:</h4> 
+        <select name="team_id" >
+          <% @teams.each do |team| %>
+            <option value="<%= team.id %>" <%= 'selected="selected"' if team.id == @player.team_id%>><%= team.name %></option>         
+          <% end %>
+        </select>
+      </div>
+      <div>
+        <h4>Commissioner:</h4> 
+        <select name="commissioner" >
+          <option value="false" selected="selected">Not a Commissioner</option> 
+          <option value="true">Commissioner</option>     
+        </select>
+      </div>
+      <div>
+        <h4>Captain:</h4> 
+        <select name="captain" >
+          <option value="false" selected="selected">Not a Captain</option> 
+          <option value="true">Captain</option>     
+        </select>
+      </div>
+      <div>
+        <h4>Password:</h4> 
+        <input type="password" name="password">
+      </div>
+      <div>
+        <h4>Password Confirmation:</h4> 
+        <input type="password" name="password_confirmation">
+      </div>
+      <br>
+      <input type="submit" value="Add New Player" class="btn btn-inverse btn-primary" >
+      <%= link_to "Cancel", "/players", class: "btn btn-inverse btn-warning" %>
+    <% end %>
   </div>
-  <div>
-    Commissioner: 
-    <select name="commissioner" >
-      <option value="false" selected="selected">Not a Commissioner</option> 
-      <option value="true">Commissioner</option>     
-    </select>
-  </div>
-  <div>
-    Captain: 
-    <select name="captain" >
-      <option value="false" selected="selected">Not a Captain</option> 
-      <option value="true">Captain</option>     
-    </select>
-  </div><br>
-  <div>
-    Password: <input type="password" name="password">
-  </div>
-  <div>
-    Password Confirmation: <input type="password" name="password_confirmation">
-  </div>
-  <br>
-  <input type="submit" value="Add New Player">
-<% end %>
+

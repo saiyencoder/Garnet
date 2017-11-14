@@ -1,14 +1,20 @@
-<h1>Edit Season</h1>
+<div class="panel col-sm-offset-3" style="width:40%">
+  <div class="panel-heading" style="font-size: 40px;">Edit Season</div>
+</div>
 
-<%= form_tag "/seasons/#{ @season.id }", method: :patch do %>
-  <div>
-    Quarter: <input type="text" name="quarter" value="<%= @season.quarter %>">
-  </div>
-  <br>
-  <div>
-    Year: <input type="text" name="year" value="<%= @season.year %>">
-  </div>
-  <br>
-  <input type="submit" value="Update Season Info", class="btn btn-inverse btn-primary" >
-  <%= link_to "Cancel", "/seasons/#{@season.id}", class: "btn btn-inverse btn-warning" %>
-<% end %>
+<div class="panel col-sm-offset-3" style="width:40%">
+  <div class="panel-body new-game-form">
+    <%= form_tag "/seasons/#{ @season.id }", method: :patch do %>
+      <div class="season">
+        <h4>Quarter:</h4>
+        <input type="text" name="quarter" value="<%= @season.quarter %>">
+      </div>
+      <div class="season">
+        <h4>Year:</h4> 
+        <input type="text" name="year" value="<%= @season.year %>">
+      </div>
+      <br>
+      <input type="submit" value="Update Season Info", class="btn btn-inverse btn-primary" >
+      <%= link_to "Cancel", "/seasons/#{@season.id}", class: "btn btn-inverse btn-warning" %>
+    <% end %>
+</div>

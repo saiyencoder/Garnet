@@ -1,24 +1,32 @@
-<h1>Edit Game</h1>
+<div class="panel col-sm-offset-3" style="width:40%">
+  <div class="panel-heading" style="font-size: 40px;">Edit Game</div>
+</div>
 
-<%= form_for(@game, url: "/games/#{@game.id}", method: :patch) do |f| %>
-  <%= f.hidden_field :season_id %>
-  <div>
-    <h4>Team Stats For:</h4>
-    <%= f.collection_select :team_id, @teams, :id, :name %>
-  </div>
-  <div>
-    <h4>Playing Against:</h4>
-    <%= f.collection_select :team_against, @teams, :id, :name %>
-  </div>
-  <div>
-    <h4>Week:</h4>
-    <%= f.text_field :week %>
-  </div>
-  <div>
-    <h4>Scorer:</h4>
-    <%= f.text_field :scorer %>
-  </div>
-  <br>
-  <%= f.submit "Edit Game", class: "btn btn-inverse btn-primary" %>
-  <%= link_to "Cancel", "/games/#{@game.id}", class: "btn btn-inverse btn-warning" %>
-<% end %>
+
+<div class="panel col-sm-offset-3" style="width:40%">
+  <div class="panel-body new-game-form">
+    <%= form_for(@game, url: "/games/#{@game.id}", method: :patch) do |f| %>
+      <%= f.hidden_field :season_id %>
+        <div>
+          <h4>Team Stats For:</h4>
+          <%= f.collection_select :team_id, @teams, :id, :name %>
+        </div>
+        <div>
+          <h4>Playing Against:</h4>
+          <%= f.collection_select :team_against, @teams, :id, :name %>
+        </div>
+        <div>
+          <h4>Week:</h4>
+          <%= f.text_field :week %>
+        </div>
+        <div>
+          <h4>Scorer:</h4>
+          <%= f.text_field :scorer %>
+        </div>
+        <br>
+      <%= f.submit "Edit Game", class: "btn btn-inverse btn-primary" %>
+      <%= link_to "Cancel", "/games/#{@game.id}", class: "btn btn-inverse btn-warning" %>
+    <% end %>
+</div>
+
+

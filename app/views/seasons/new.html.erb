@@ -1,12 +1,20 @@
-<h1>Create Season</h1>
+<div class="panel col-sm-offset-3" style="width:40%">
+  <div class="panel-heading" style="font-size: 40px;">Start a New Season</div>
+</div>
 
-<%= form_tag "/seasons", method: :post do %>
-  <div class="season">
-    Quarter: <input type="text" name="quarter">
-  </div>
-  <div class="season">
-    Year: <input type="text" name="year">
-  </div>
-  <br>
-  <input type="submit" value="Create Season" class="btn btn-inverse btn-primary" >
-<% end %>
+<div class="panel col-sm-offset-3" style="width:40%">
+  <div class="panel-body new-game-form">
+    <%= form_tag "/seasons", method: :post do %>
+      <div class="season">
+        <h4>Quarter:</h4>
+        <input type="text" name="quarter">
+      </div>
+      <div class="season">
+        <h4>Year:</h4> 
+        <input type="text" name="year">
+      </div>
+      <br>
+      <input type="submit" value="Create Season" class="btn btn-inverse btn-primary" >
+      <%= link_to "Cancel", "/seasons", class: "btn btn-inverse btn-warning" %>
+    <% end %>
+</div>
