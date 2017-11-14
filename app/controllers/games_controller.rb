@@ -45,7 +45,8 @@ class GamesController < ApplicationController
       stat.free_throw_percentage = ((stat.free_throws_made.to_f) / (stat.free_throw_attempts.to_f)) * 100
       @game.update(game_params)
     end
-                      
+
+                  
     flash[:success] = "Game Info Updated"
     redirect_to "/games/#{@game.id}/edit_stats"
   end

@@ -1,60 +1,61 @@
-<h1>Team Stats</h1>
-
-<div class="row">
-  <% @stats.each do |stat| %>
-    <div class="col-md-3">
-      <div>
-       Game(Week): <%= stat.game.week %>
-      </div>
-      <div>
-        <a href="/players/<%= stat.player.id %>">Player: <%= stat.player.name %></a>
-      </div>
-      <div>
-         Points: <%= stat.points %>
-      </div>
-      <div>
-         FGM: <%= stat.field_goal_made %><br>
-      </div>
-      <div>
-         FGA: <%= stat.field_goal_attempt %><br>
-      </div>
-      <div>
-         FG%: <%= stat.field_goal_percentage %>% <br>
-      </div>
-      <div>
-         3PM: <%= stat.three_point_made %><br>
-      </div>
-      <div>
-         3PA: <%= stat.three_point_attempt %><br>
-      </div>
-      <div>
-         3P%: <%= stat.three_point_field_goal_percentage %>%<br>
-      </div>
-      <div>
-         FTM: <%= stat.free_throws_made %><br>
-      </div>
-      <div>
-         FTA: <%= stat.free_throw_attempts %><br>
-      </div>
-      <div>
-         FT%: <%= stat.free_throw_percentage %>%<br>
-      </div>
-      <div>
-         REB: <%= stat.rebounds %><br>
-      </div>
-      <div>
-         AST: <%= stat.assists %><br>
-      </div>
-      <div>
-         STL: <%= stat.steals %><br>
-      </div>
-      <div>
-         BLK: <%= stat.blocks %><br>
-      </div>
-      <div>
-         PFL: <%= stat.fouls %>
-      </div>
-      <br>
-    </div>
-  <% end %>
+<div class="panel panel-default">
+  <div class="panel-heading" style="font-size: 50px;"><%= @game.team.name %></div>
 </div>
+
+<div class="panel panel-default">
+  <div class="panel-body" style="font-size: 15px;">
+    <table class="table table-bordered">
+      <tr>
+        <th>Player</th>
+        <th>Points</th>
+        <th>FGM</th>
+        <th>FGA</th>
+        <th>FG%</th>
+        <th>3PM</th>
+        <th>3PA</th>
+        <th>3PG%</th>
+        <th>FTM</th>
+        <th>FTA</th>
+        <th>FT%</th>
+        <th>REB</th>
+        <th>AST</th>
+        <th>STL</th>
+        <th>BLK</th>
+        <th>PFL</th>
+      </tr>
+      <% @stats.each do |stat| %>
+      <tr>
+        <th><a href="/players/<%= stat.player.id %>"><%= stat.player.name %></a></th>
+        <th><%= stat.points %></th>
+        <th><%= stat.field_goal_made %></th>
+        <th><%= stat.field_goal_attempt %></th>
+        <th><%= stat.field_goal_percentage %>%</th>
+        <th><%= stat.three_point_made %></th>
+        <th><%= stat.three_point_attempt %></th>
+        <th><%= stat.three_point_field_goal_percentage %></th>
+        <th><%= stat.free_throws_made %></th>
+        <th><%= stat.free_throw_attempts %></th>
+        <th><%= stat.free_throw_percentage %></th>
+        <th><%= stat.rebounds %></th>
+        <th><%= stat.assists %></th>
+        <th><%= stat.steals %></th>
+        <th><%= stat.blocks %></th>
+        <th><%= stat.fouls %></th>
+      </tr>
+      <% end %>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

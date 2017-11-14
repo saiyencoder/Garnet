@@ -1,7 +1,27 @@
-<h1>Games</h1>
+<div class="panel panel-default">
+  <div class="panel-heading" style="font-size: 50px;">Games</div>
+</div>
 
-<% @games.order(:week).each do |game| %>
-  <h3><a href="/games/<%= game.id %>">Week: <%= game.week %> Team: <%= game.team.name %></a></h3>
-<% end %>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <table class="table table-bordered">
+      <tr>
+        <th>Season</th>
+        <th>Year</th>
+        <th>Week</th>
+        <th>Team</th>
+        <th>Against</th>
+      </tr>
+      <% @games.order(:week).each do |game| %>
+        <tr>
+          <th><a href="/games/<%= game.id %>"><%= game.season.quarter %></a></th>
+          <th><a href="/games/<%= game.id %>"><%= game.season.year %></a></th>
+          <th><a href="/games/<%= game.id %>"><%= game.week %></a></th>
+          <th><a href="/games/<%= game.id %>"><%= game.team.name %></a></th>
+          <th><a href="/games/<%= game.id %>"><%= Team.find(game.team_against).name %></a></th>
+        </tr>
+      <% end %>
+    </table>
+</div>
 
 

@@ -1,61 +1,93 @@
-<% if @player.captain == true %>
-  <h1><%= @player.name %> (Captain)</h1>
-<% else %>
-  <h1><%= @player.name %></h1>
-<% end %>
-<h4>Team: <%= @player.team.name %></h4>
-<br>
-
-<h2>Career Averages</h2>
-<table class="table table-bordered">
-  <tr>
-    <th>PPG</th>
-    <th>RPG</th>
-    <th>APG</th>
-    <th>SPG</th>
-    <th>BPG</th>
-    <th>FPG</th>
-  </tr>
-  <tr>
-    <th><%= @player.points_per_game %></th>
-    <th><%= @player.rebounds_per_game %></th>
-    <th><%= @player.assists_per_game %></th>
-    <th><%= @player.steals_per_game %></th>
-    <th><%= @player.blocks_per_game %></th>
-    <th><%= @player.fouls_per_game %></th>
-  </tr>
-</table>
-<br>
-
-<h2>Games:</h2>
-<div class="row">
-  <% @player.stats.order(:id).each do |stat| %>
-    <div class="col-md-2">
-      Season: <%= stat.game.season.quarter %> | <%= stat.game.season.year %><br>
-      Game(Week): <%= stat.game.week %><br>
-      Points: <%= stat.points %><br>
-      FGM: <%= stat.field_goal_made %><br>
-      FGA: <%= stat.field_goal_attempt %><br>
-      FG%: <%= stat.field_goal_percentage %>%<br>
-      3PM: <%= stat.three_point_made %><br>
-      3PA: <%= stat.three_point_attempt %><br>
-      3P%: <%= stat.field_goal_attempt %>%<br>
-      FTM: <%= stat.free_throws_made %><br>
-      FTA: <%= stat.free_throw_attempts %><br>
-      FT%: <%= stat.free_throw_percentage %>%<br>
-      REB: <%= stat.rebounds %><br>
-      AST: <%= stat.assists %><br>
-      STL: <%= stat.steals %><br>
-      BLK: <%= stat.blocks %><br>
-      PFL: <%= stat.fouls %><br>
-      <br>
-    </div>
+<div class="panel panel-default">
+  <% if @player.captain == true %>
+    <div class="panel-heading" style="font-size: 50px;"><%= @player.name %> (Captain)</div>
+  <% else %>
+    <div class="panel-heading" style="font-size: 50px;"><%= @player.name %></div>
   <% end %>
 </div>
 
-<% if current_player && current_player.commissioner %>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <table class="table table-bordered">
+      <tr>
+        <th colspan="6">Career Averages</th>
+      </tr>
+      <tr>
+        <th>PPG</th>
+        <th>RPG</th>
+        <th>APG</th>
+        <th>SPG</th>
+        <th>BPG</th>
+        <th>FPG</th>
+      </tr>
+      <tr>
+        <th><%= @player.points_per_game %></th>
+        <th><%= @player.rebounds_per_game %></th>
+        <th><%= @player.assists_per_game %></th>
+        <th><%= @player.steals_per_game %></th>
+        <th><%= @player.blocks_per_game %></th>
+        <th><%= @player.fouls_per_game %></th>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <table class="table table-bordered" style="font-size:15px;">
+      <tr><th colspan="19">Games</th></tr>
+      <tr>
+        <th>Season</th>
+        <th>Year</th>
+        <th>Week</th>
+        <th>Points</th>
+        <th>FGM</th>
+        <th>FGA</th>
+        <th>FG%</th>
+        <th>3PM</th>
+        <th>3PA</th>
+        <th>3PG%</th>
+        <th>FTM</th>
+        <th>FTA</th>
+        <th>FT%</th>
+        <th>REB</th>
+        <th>AST</th>
+        <th>STL</th>
+        <th>BLK</th>
+        <th>PFL</th>
+        <th>vs</th>
+      </tr>
+      <% @player.stats.order(:id).each do |stat| %>
+      <tr>
+        <th><%= stat.game.season.quarter %></th>
+        <th><%= stat.game.season.year %></th>
+        <th><%= stat.game.week %></th>
+        <th><%= stat.points %></th>
+        <th><%= stat.field_goal_made %></th>
+        <th><%= stat.field_goal_attempt %></th>
+        <th><%= stat.field_goal_percentage %>%</th>
+        <th><%= stat.three_point_made %></th>
+        <th><%= stat.three_point_attempt %></th>
+        <th><%= stat.three_point_field_goal_percentage %></th>
+        <th><%= stat.free_throws_made %></th>
+        <th><%= stat.free_throw_attempts %></th>
+        <th><%= stat.free_throw_percentage %></th>
+        <th><%= stat.rebounds %></th>
+        <th><%= stat.assists %></th>
+        <th><%= stat.steals %></th>
+        <th><%= stat.blocks %></th>
+        <th><%= stat.fouls %></th>
+        <th><%= Team.find(stat.game.team_against).name %></th>
+      </tr>
+      <% end %>
+    </table>
+    </table>
+  </div>
+</div>
+
+<%# if current_player && current_player.commissioner %>
   <div>
     <%= link_to "Edit Player", "/players/#{ @player.id }/edit", class: "btn btn-warning" %>
     <%= link_to "Delete Player", "/players/#{ @player.id }", method: :delete, class: "btn btn-danger" %>
   </div>
-<% end %>
+<%# end %>

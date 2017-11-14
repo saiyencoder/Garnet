@@ -1,14 +1,11 @@
 <div class="panel panel-default">
   <div class="panel-heading"><%= @season.year %> <%= @season.quarter %> Season Games</div>
 <%# if current_player && current_player.commissioner %>
-  <a href="/games/new/<%= @season.id %>">Add New Game</a> |
-  <a href="/seasons/<%= @season.id %>/edit">Edit Season Info</a>
+  <a href="/games/new/<%= @season.id %>" style="text-align:center; display: block;">Add New Game</a>
+  <a href="/seasons/<%= @season.id %>/edit" style="text-align:center; display: block;">Edit Season Info</a>
 <%# end %>
 </div>
 
-<% if current_player && current_player.commissioner %>
-  <a href="/seasons/new">Start a new Season</a>
-<% end %>
 <div class="panel panel-default">
   <div class="panel-body">
     <table class="table table-bordered">

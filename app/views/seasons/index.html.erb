@@ -1,10 +1,10 @@
 <div class="panel panel-default">
-  <div class="panel-heading">Seasons</div>
+  <div class="panel-heading" style="font-size: 40px;">Seasons</div>
+  <%# if current_player && current_player.commissioner %>
+    <a href="/seasons/new" style="text-align:center; display: block;">Start a new Season</a>
+  <%# end %>
 </div>
 
-<% if current_player && current_player.commissioner %>
-  <a href="/seasons/new">Start a new Season</a>
-<% end %>
 <div class="panel panel-default">
   <div class="panel-body">
     <table class="table table-bordered">
@@ -20,11 +20,4 @@
       <% end %>
     </table>
 </div>
-
-
-
-
-
-
-
 

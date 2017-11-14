@@ -1,5 +1,5 @@
 class PlayersController < ApplicationController
-before_action :authenticate_commish!, except: [:index, :show]
+# before_action :authenticate_commish!, except: [:index, :show]
   
   def index
     @players = Player.all

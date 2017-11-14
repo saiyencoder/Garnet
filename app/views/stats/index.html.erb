@@ -1,6 +1,26 @@
-<h1>Choose week to view Team Stats</h1>
+<div class="panel panel-default">
+  <div class="panel-heading" style="font-size: 50px;">Click on Team to View Stats for Game</div>
+</div>
 
-<% @games.order(:week).each do |game| %>
-  <h3><a href="/stats/<%= game.id %>/teamstats">Week: <%= game.week %> for <%= game.team.name %></a></h3>
-<% end %>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <table class="table table-bordered">
+      <tr>
+        <th>Season</th>
+        <th>Year</th>
+        <th>Week</th>
+        <th>Team</th>
+        <th>Against</th>
+      </tr>
+      <% @games.order(:week).each do |game| %>
+        <tr>
+          <th><%= game.season.quarter %></th>
+          <th><%= game.season.year %></th>
+          <th><%= game.week %></th>
+          <th><a href="/stats/<%= game.id %>/teamstats"><%= game.team.name %></a></th>
+          <th><%= Team.find(game.team_against).name %></th>
+        </tr>
+      <% end %>
+    </table>
+</div>
 

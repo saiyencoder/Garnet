@@ -9,7 +9,14 @@
 }
 
 .stats_submit {
+  margin-top: 12px;
+  margin-right: 10px;
   float: right;
+}
+
+.stats_update {
+  margin-top: 12px;
+  margin-left: 10px;
 }
 
 .table th {
@@ -69,9 +76,23 @@ body {
   margin-bottom: 10px;
 }
 
-//  {
-//   text-align: center;
-// }
+.season-show {
+
+  p {  
+    text-align: center;
+    font-size: 30px;
+  }
+
+  h5 {
+    text-align: right;
+    margin-right: 10px;
+  }
+}
+
+.show-buttons {
+  text-align: center;
+  margin-bottom: 10px;
+}
 
 
 

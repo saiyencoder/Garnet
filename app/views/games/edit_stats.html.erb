@@ -1,21 +1,33 @@
-<p>Edit Stats</p>
+<%# @game.stats.first.total_points_in_game%>
 
+<%@game.stats.each do |points|%>
+       <%=points.points%>
+    <% end %>
 
+    Rea:<%= @game.in_game_points %>
+
+<!-- Header -->
+<div class="panel panel-default">
+  <div class="panel-heading" style="font-size: 50px;">Sonic Stats</div>
+</div>
+
+<!-- Stats -->
 <%= form_for(@game, url: "/games/#{@game.id}/", method: :patch) do |f| %>
     <div>
       <div class="row">
         <%= f.fields_for :stats, f.object.stats.order(:player_name) do |stat| %>
           <div class="col-md-2">
-          <%= render 'stat_fields', f: stat %>
+            <%= render 'stat_fields', f: stat %>
           </div>
         <% end %>
       </div>
     </div>
-  <br>
-  <%= f.submit 'Update Stats', class: "btn btn-primary"%>
-  <br><br>
-  <div class="stats_submit">
-    <%= link_to 'Submit Stats', "/stats",class: "btn btn-danger"  %>
-  </div>
+    <br>
+<!-- Lower Panel -->
+    <div class="panel" style="height:60px;">
+      <%= f.submit 'Update Stats', class: "btn btn-primary stats_update"%>
+      Points <%# @team.team_total_points%>
+      <%= link_to 'Submit Stats', "/stats",class: "btn btn-danger stats_submit"%>
+    </div>
   <br><br>
 <% end %>

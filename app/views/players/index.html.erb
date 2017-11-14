@@ -1,10 +1,19 @@
-<h1>Active Players</h1>
+<div class="panel panel-default">
+  <div class="panel-heading" style="font-size: 50px;">Dee League Active Players</div>
+  <%# if current_player && current_player.commissioner %>
+  <a href="/players/new" style="text-align:center; display: block; font-size: 20px">Add New Player</a>
+<%# end %>
+</div>
 
-<% @players.order(:name).each do |player| %>
-  <h3><a href="/players/<%= player.id %>"><%= player.name %></a></h3>
-<% end %>
-<br>
 
-<% if current_player && current_player.commissioner %>
-  <a href="/players/new">Add New Player</a>
-<% end %>
+<div class="panel panel-group">
+  <div class="panel-body" style="font-size: 25px;">
+    <table class="table table-bordered">
+      <% @players.order(:name).each do |player|  %>
+        <tr>
+          <th style="font-size: 20px;"><a href="/players/<%= player.id %>"><%= player.name %></a></th>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
